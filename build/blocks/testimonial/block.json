@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "kn/high-pulp-blocks",
+  "name": "kn/testimonial",
   "version": "0.1.0",
-  "title": "High Pulp Blocks",
+  "title": "Pulpy Testimonial",
   "category": "design",
   "icon": "testimonial",
-  "description": "ADd some extra pulp to your site with these 100% original blocks.",
+  "description": "Extra pulpy testimonial.",
   "example": {},
   "supports": {
     "html": false
@@ -15,5 +15,11 @@
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "keywords": [
+    "testimonial",
+    "kn",
+    "kn plugins",
+    "pulp"
+  ]
 }
