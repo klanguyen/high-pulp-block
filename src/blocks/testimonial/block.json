@@ -16,6 +16,30 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
-	"keywords": ["testimonial", "kn", "kn plugins", "pulp"]
-
+	"keywords": ["testimonial", "kn", "kn plugins", "pulp"],
+	"attributes": {
+		"quote": {
+			"type": "string",
+			"source": "html",
+			"selector": ".quote"
+		},
+		"stars": {
+			"type": "number",
+			"default": 3
+		},
+		"imgUrl": {
+			"type": "string",
+			"default": "https://placehold.it/75"
+		},
+		"author": {
+			"type": "string",
+			"source": "text",
+			"selector": ".author"
+		},
+		"location": {
+			"type": "string",
+			"source": "text",
+			"selector": ".location"
+		}
+	}
 }
