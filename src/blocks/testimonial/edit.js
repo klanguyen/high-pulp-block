@@ -21,6 +21,7 @@ import {useBlockProps, RichText, PlainText, MediaUploadCheck, MediaUpload} from 
  */
 import './editor.scss';
 import {SelectControl} from "@wordpress/components";
+import StarRating from "../../components/StarRating";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -37,7 +38,7 @@ export default function Edit({attributes, setAttributes}) {
 	return (
 		<div { ...useBlockProps() }>
 			<div className="stars">
-				<SelectControl
+				{/*<SelectControl
 					label="Select a rating"
 					value={attributes.stars}
 					onChange={stars => setAttributes({stars: parseInt(stars)})}
@@ -48,7 +49,11 @@ export default function Edit({attributes, setAttributes}) {
 						{value: 4, label: '★★★★'},
 						{value: 5, label: '★★★★★'}
 					]}
-					/>
+					/>*/}
+
+				<StarRating rating={attributes.stars}
+							setRating={stars => setAttributes({stars: parseInt(stars)})}
+				/>
 			</div>
 			<RichText
 				className="quote"

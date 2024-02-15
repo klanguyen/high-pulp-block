@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/testimonial/editor.scss");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_StarRating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/StarRating */ "./src/components/StarRating.js");
 
 /**
  * Retrieves the translation of text.
@@ -46,6 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -65,28 +67,11 @@ function Edit({
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "stars"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
-    label: "Select a rating",
-    value: attributes.stars,
-    onChange: stars => setAttributes({
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_StarRating__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    rating: attributes.stars,
+    setRating: stars => setAttributes({
       stars: parseInt(stars)
-    }),
-    options: [{
-      value: 1,
-      label: '★'
-    }, {
-      value: 2,
-      label: '★★'
-    }, {
-      value: 3,
-      label: '★★★'
-    }, {
-      value: 4,
-      label: '★★★★'
-    }, {
-      value: 5,
-      label: '★★★★★'
-    }]
+    })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     className: "quote",
     tagName: "div",
@@ -253,6 +238,39 @@ function save({
 
 /***/ }),
 
+/***/ "./src/components/StarRating.js":
+/*!**************************************!*\
+  !*** ./src/components/StarRating.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StarRating)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _StarRating_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarRating.scss */ "./src/components/StarRating.scss");
+
+
+
+function StarRating({
+  rating,
+  setRating
+}) {
+  const [hover, setHover] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(rating || 0);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "stars"
+  }, [1, 2, 3, 4, 5].map(star => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: star <= hover ? 'star on' : 'star off',
+    onClick: () => setRating(star),
+    onMouseEnter: () => setHover(star),
+    onMouseLeave: () => setHover(rating)
+  }, "\u2605")));
+}
+
+/***/ }),
+
 /***/ "./src/blocks/testimonial/editor.scss":
 /*!********************************************!*\
   !*** ./src/blocks/testimonial/editor.scss ***!
@@ -269,6 +287,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************!*\
   !*** ./src/blocks/testimonial/style.scss ***!
   \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/components/StarRating.scss":
+/*!****************************************!*\
+  !*** ./src/components/StarRating.scss ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
