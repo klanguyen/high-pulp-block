@@ -16,5 +16,12 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
-	"keywords": ["featured projects", "kn", "kn plugins", "projects"]
+	"keywords": ["featured projects", "kn", "kn plugins", "projects"],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".project-title"
+		}
+	}
 }

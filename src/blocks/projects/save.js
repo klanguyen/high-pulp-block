@@ -15,16 +15,16 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
+export default function save({attributes}) {
 	return (
 		<div { ...useBlockProps.save() }>
-			<div className="card">
-				<img className="card-img" src="https://picsum.photos/1000/1000" alt="Image Title" />
-				<div className="card-body">
-					<h2 className="card-title">Project Title</h2>
+			<div className="project">
+				<img className="project-img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+				<div className="project-body">
+					<h2 className="project-title">{attributes.title}</h2>
 					<div className="divider"></div>
-					<p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</p>
-					<ul className="card-tag">
+					<p className="project-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</p>
+					<ul className="project-tag">
 						<li className="tag-item">CSS</li>
 						<li className="tag-item">HTML</li>
 						<li className="tag-item">Vue.js</li>

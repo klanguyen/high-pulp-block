@@ -21,5 +21,12 @@
     "kn",
     "kn plugins",
     "projects"
-  ]
+  ],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".project-title"
+    }
+  }
 }

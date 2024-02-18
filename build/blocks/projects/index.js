@@ -51,25 +51,33 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
+function Edit({
+  attributes,
+  setAttributes
+}) {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "card"
+    className: "project"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "card-img",
+    className: "project-img",
     src: "https://picsum.photos/1000/1000",
     alt: "Image Title"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "card-body"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "card-title"
-  }, "Project Title"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "project-body"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
+    className: "project-title",
+    placeholder: "Project Title",
+    value: attributes.title,
+    onChange: title => setAttributes({
+      title
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "divider"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "card-text"
+    className: "project-summary"
   }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-    className: "card-tag"
+    className: "project-tag"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     className: "tag-item"
   }, "CSS"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
@@ -167,25 +175,27 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function save() {
+function save({
+  attributes
+}) {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "card"
+    className: "project"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "card-img",
+    className: "project-img",
     src: "https://picsum.photos/1000/1000",
     alt: "Image Title"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "card-body"
+    className: "project-body"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "card-title"
-  }, "Project Title"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "project-title"
+  }, attributes.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "divider"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "card-text"
+    className: "project-summary"
   }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-    className: "card-tag"
+    className: "project-tag"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     className: "tag-item"
   }, "CSS"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
@@ -267,7 +277,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"html","selector":".project-title"}}}');
 
 /***/ })
 

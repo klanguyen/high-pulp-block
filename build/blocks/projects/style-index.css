@@ -7,7 +7,7 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-kn-projects .card {
+.wp-block-kn-projects .project {
   background-color: #18151f;
   flex-wrap: inherit;
   display: flex;
@@ -18,22 +18,22 @@
   position: relative;
   color: #efefef;
 }
-.wp-block-kn-projects .card a {
+.wp-block-kn-projects .project a {
   color: #efefef;
 }
-.wp-block-kn-projects .card h2 {
+.wp-block-kn-projects .project h2 {
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
 }
-.wp-block-kn-projects .card .card-title {
+.wp-block-kn-projects .project .project-title {
   color: #efefef;
   font-size: 2rem;
 }
-.wp-block-kn-projects .card .card-title:hover {
+.wp-block-kn-projects .project .project-title:hover {
   color: #0076bd;
 }
-.wp-block-kn-projects .card .card-img {
+.wp-block-kn-projects .project .project-img {
   max-width: 300px;
   max-height: 100%;
   width: 100%;
@@ -42,7 +42,7 @@
   position: relative;
   transition: transform 0.3s ease;
 }
-.wp-block-kn-projects .card .divider {
+.wp-block-kn-projects .project .divider {
   width: 50px;
   height: 10px;
   margin: 10px 0;
@@ -50,20 +50,20 @@
   background-color: #0076bd;
   transition: width 0.2s ease;
 }
-.wp-block-kn-projects .card .card-body {
+.wp-block-kn-projects .project .project-body {
   padding: 3rem;
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
 }
-.wp-block-kn-projects .card .card-text {
+.wp-block-kn-projects .project .project-summary {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: justify;
   height: 100%;
 }
-.wp-block-kn-projects .card .card-tag {
+.wp-block-kn-projects .project .project-tag {
   display: flex;
   flex-flow: row wrap;
   font-size: 14px;
@@ -71,7 +71,7 @@
   padding: 0;
   justify-content: flex-start;
 }
-.wp-block-kn-projects .card .card-tag .tag-item {
+.wp-block-kn-projects .project .project-tag .tag-item {
   display: inline-block;
   background: rgba(83, 83, 83, 0.4);
   border-radius: 3px;
@@ -83,10 +83,10 @@
           user-select: none;
   transition: background-color 0.3s;
 }
-.wp-block-kn-projects .card .card-tag .tag-item:hover {
+.wp-block-kn-projects .project .project-tag .tag-item:hover {
   background: rgba(83, 83, 83, 0.8);
 }
-.wp-block-kn-projects .card:before {
+.wp-block-kn-projects .project:before {
   content: "";
   position: absolute;
   top: 0;
@@ -97,27 +97,27 @@
   opacity: 1;
   border-radius: 10px;
 }
-.wp-block-kn-projects .card:hover .divider {
+.wp-block-kn-projects .project:hover .divider {
   width: 100px;
 }
-.wp-block-kn-projects .card:hover .card-img {
+.wp-block-kn-projects .project:hover .project-img {
   transform: scale(1.1);
 }
-.wp-block-kn-projects .card:nth-child(odd) {
+.wp-block-kn-projects .project:nth-child(odd) {
   flex-direction: row;
 }
-.wp-block-kn-projects .card:nth-child(even) {
+.wp-block-kn-projects .project:nth-child(even) {
   flex-direction: row-reverse;
 }
-.wp-block-kn-projects .card:nth-child(odd) .card-body::before {
+.wp-block-kn-projects .project:nth-child(odd) .project-body::before {
   left: -12px !important;
   transform: rotate(4deg);
 }
-.wp-block-kn-projects .card:nth-child(odd) .card-body::before {
+.wp-block-kn-projects .project:nth-child(odd) .project-body::before {
   right: -12px !important;
   transform: rotate(-4deg);
 }
-.wp-block-kn-projects .card::before {
+.wp-block-kn-projects .project::before {
   background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
 }
 
