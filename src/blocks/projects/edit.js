@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {PlainText, useBlockProps} from '@wordpress/block-editor';
+import {MediaUpload, MediaUploadCheck, PlainText, RichText, useBlockProps} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -33,7 +33,20 @@ export default function Edit({attributes, setAttributes}) {
 	return (
 		<div { ...useBlockProps() }>
 			<div className="project">
-				<img className="project-img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+				<MediaUploadCheck>
+					<MediaUpload
+						allowedTypes={['image']}
+						onSelect={	file => {
+							console.log(file);
+							setAttributes({projectImgUrl: file.sizes.full.url})
+							}
+						}
+						render={ ({open}) => <img className="project-img"
+												  src={attributes.projectImgUrl}
+												  alt="Upload a project photo"
+												  onClick={open}/>}
+					/>
+				</MediaUploadCheck>
 				<div className="project-body">
 					<PlainText
 						className="project-title"
@@ -42,7 +55,13 @@ export default function Edit({attributes, setAttributes}) {
 						onChange={ title => setAttributes({title}) }
 					/>
 					<div className="divider"></div>
-					<p className="project-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</p>
+					<RichText
+						className="project-summary"
+						tagName="p"
+						placeholder="This is a super cool project I made."
+						value={attributes.summary}
+						onChange={ summary => setAttributes({summary}) }
+					/>
 					<ul className="project-tag">
 						<li className="tag-item">CSS</li>
 						<li className="tag-item">HTML</li>

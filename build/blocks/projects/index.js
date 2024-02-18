@@ -59,11 +59,23 @@ function Edit({
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "project"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "project-img",
-    src: "https://picsum.photos/1000/1000",
-    alt: "Image Title"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    allowedTypes: ['image'],
+    onSelect: file => {
+      console.log(file);
+      setAttributes({
+        projectImgUrl: file.sizes.full.url
+      });
+    },
+    render: ({
+      open
+    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      className: "project-img",
+      src: attributes.projectImgUrl,
+      alt: "Upload a project photo",
+      onClick: open
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "project-body"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
     className: "project-title",
@@ -74,9 +86,15 @@ function Edit({
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "divider"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "project-summary"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "project-summary",
+    tagName: "p",
+    placeholder: "This is a super cool project I made.",
+    value: attributes.summary,
+    onChange: summary => setAttributes({
+      summary
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "project-tag"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     className: "tag-item"
@@ -184,17 +202,19 @@ function save({
     className: "project"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "project-img",
-    src: "https://picsum.photos/1000/1000",
-    alt: "Image Title"
+    src: attributes.projectImgUrl,
+    alt: "Photo of project"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "project-body"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "project-title"
   }, attributes.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "divider"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "project-summary"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    className: "project-summary",
+    tagName: "p",
+    value: attributes.summary
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "project-tag"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     className: "tag-item"
@@ -277,7 +297,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"html","selector":".project-title"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"}}}');
 
 /***/ })
 

@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {RichText, useBlockProps} from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -19,11 +19,15 @@ export default function save({attributes}) {
 	return (
 		<div { ...useBlockProps.save() }>
 			<div className="project">
-				<img className="project-img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+				<img className="project-img" src={attributes.projectImgUrl} alt="Photo of project"/>
 				<div className="project-body">
 					<h2 className="project-title">{attributes.title}</h2>
 					<div className="divider"></div>
-					<p className="project-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</p>
+					<RichText.Content
+						className="project-summary"
+						tagName="p"
+						value={attributes.summary}
+					/>
 					<ul className="project-tag">
 						<li className="tag-item">CSS</li>
 						<li className="tag-item">HTML</li>

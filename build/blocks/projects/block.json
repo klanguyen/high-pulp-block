@@ -25,8 +25,17 @@
   "attributes": {
     "title": {
       "type": "string",
-      "source": "html",
+      "source": "text",
       "selector": ".project-title"
+    },
+    "summary": {
+      "type": "string",
+      "source": "html",
+      "selector": ".project-summary"
+    },
+    "projectImgUrl": {
+      "type": "string",
+      "default": "https://placehold.it/1000"
     }
   }
 }
