@@ -31,11 +31,20 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Featured Project Blocks – hello from the editor!',
-				'featured-project-blocks'
-			) }
-		</p>
+		<div { ...useBlockProps() }>
+			<div className="card">
+				<img className="card-img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+				<div className="card-body">
+					<h2 className="card-title">Project Title</h2>
+					<div className="divider"></div>
+					<p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</p>
+					<ul className="card-tag">
+						<li className="tag-item">CSS</li>
+						<li className="tag-item">HTML</li>
+						<li className="tag-item">Vue.js</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	);
 }

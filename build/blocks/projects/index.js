@@ -52,9 +52,31 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Featured Project Blocks – hello from the editor!', 'featured-project-blocks'));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "card-img",
+    src: "https://picsum.photos/1000/1000",
+    alt: "Image Title"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card-body"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "card-title"
+  }, "Project Title"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "divider"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "card-text"
+  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    className: "card-tag"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tag-item"
+  }, "CSS"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tag-item"
+  }, "HTML"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tag-item"
+  }, "Vue.js")))));
 }
 
 /***/ }),
@@ -146,9 +168,31 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function save() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
-  }, 'Featured Project Blocks – hello from the saved content!');
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "card-img",
+    src: "https://picsum.photos/1000/1000",
+    alt: "Image Title"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card-body"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "card-title"
+  }, "Project Title"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "divider"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "card-text"
+  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    className: "card-tag"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tag-item"
+  }, "CSS"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tag-item"
+  }, "HTML"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tag-item"
+  }, "Vue.js")))));
 }
 
 /***/ }),
