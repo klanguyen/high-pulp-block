@@ -5,5 +5,9 @@
  */
 
 .wp-block-kn-projects {
-	border: 1px dotted #f00;
+	border: 2px dashed #f00;
+	textarea, input[type=text] {
+		background-color: #18151f;
+		border: 2px solid #efefef;
+	}
 }

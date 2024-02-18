@@ -6,7 +6,7 @@
  */
 
 .wp-block-kn-projects {
-	.card {
+	.project {
 		background-color: #18151f;
 
 		flex-wrap: inherit;
@@ -29,7 +29,7 @@
 			line-height: 1.2;
 		}
 
-		.card-title {
+		.project-title {
 			color: #efefef;
 			font-size: 2rem;
 
@@ -38,7 +38,7 @@
 			}
 		}
 
-		.card-img {
+		.project-img {
 			max-width: 300px;
 			max-height: 100%;
 			width: 100%;
@@ -56,7 +56,7 @@
 			transition: width 0.2s ease;
 		}
 
-		.card-body {
+		.project-body {
 			padding: 3rem;
 			width: 100%;
 			position: relative;
@@ -64,14 +64,14 @@
 			flex-direction: column;
 		}
 
-		.card-text {
+		.project-summary {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			text-align: justify;
 			height: 100%;
 		}
 
-		.card-tag {
+		.project-tag {
 			display: flex;
 			flex-flow: row wrap;
 			font-size: 14px;
@@ -111,7 +111,7 @@
 			width: 100px;
 		}
 
-		&:hover .card-img {
+		&:hover .project-img {
 			transform: scale(1.1);
 		}
 
@@ -123,12 +123,12 @@
 			flex-direction: row-reverse;
 		}
 
-		&:nth-child(odd) .card-body::before {
+		&:nth-child(odd) .project-body::before {
 			left: -12px!important;
 			transform: rotate(4deg);
 		}
 
-		&:nth-child(odd) .card-body::before {
+		&:nth-child(odd) .project-body::before {
 			right: -12px!important;
 			transform: rotate(-4deg);
 		}
