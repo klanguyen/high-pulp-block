@@ -36,8 +36,12 @@ import {BlockSettings} from "./BlockSettings";
 export default function Edit({attributes, setAttributes}) {
 	//const attributes = props.attributes;
 	//const {attributes, setAttributes} = props;
+	const divStyles = {
+		borderColor: attributes.borderColor,
+	};
+
 	return (
-		<div { ...useBlockProps({className: attributes.backgroundColorClass}) }>
+		<div { ...useBlockProps({className: attributes.backgroundColorClass, style: divStyles}) }>
 			<BlockSettings attributes={attributes} setAttributes={setAttributes} />
 			<div className="stars">
 				{/*<SelectControl

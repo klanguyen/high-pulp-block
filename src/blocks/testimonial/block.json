@@ -43,6 +43,9 @@
 		},
 		"backgroundColorClass": {
 			"type": "string"
+		},
+		"borderColor": {
+			"type": "string"
 		}
 	}
 }
