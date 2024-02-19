@@ -45,6 +45,9 @@
       "type": "string",
       "source": "text",
       "selector": ".location"
+    },
+    "backgroundColorClass": {
+      "type": "string"
     }
   }
 }

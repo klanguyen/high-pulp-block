@@ -18,7 +18,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 export default function save({attributes}) {
 	let starIcons = Array(5).fill('★', 0, attributes.stars).join('');
 	return (
-		<div { ...useBlockProps.save() }>
+		<div { ...useBlockProps.save({className: attributes.backgroundColorClass}) }>
 			<div className="stars">{starIcons}</div>
 			<RichText.Content className="quote"
 							  tagName="div"
