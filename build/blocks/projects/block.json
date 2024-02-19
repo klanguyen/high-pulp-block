@@ -44,26 +44,6 @@
     "dividerColor": {
       "type": "string",
       "default": "#0076bd"
-    },
-    "isHtmlChecked": {
-      "type": "string",
-      "default": ""
-    },
-    "isCssChecked": {
-      "type": "string",
-      "default": ""
-    },
-    "isVueChecked": {
-      "type": "string",
-      "default": ""
-    },
-    "isWPChecked": {
-      "type": "string",
-      "default": ""
-    },
-    "isJSChecked": {
-      "type": "string",
-      "default": ""
     }
   }
 }
