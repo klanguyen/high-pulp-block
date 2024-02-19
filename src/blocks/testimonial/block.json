@@ -46,6 +46,9 @@
 		},
 		"borderColor": {
 			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
 		}
 	}
 }

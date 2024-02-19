@@ -19,6 +19,7 @@ export default function save({attributes}) {
 	let starIcons = Array(5).fill('★', 0, attributes.stars).join('');
 	const divStyles = {
 		borderColor: attributes.borderColor,
+		color: attributes.textColor,
 	};
 
 	return (

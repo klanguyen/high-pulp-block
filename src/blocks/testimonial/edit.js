@@ -38,6 +38,7 @@ export default function Edit({attributes, setAttributes}) {
 	//const {attributes, setAttributes} = props;
 	const divStyles = {
 		borderColor: attributes.borderColor,
+		color: attributes.textColor,
 	};
 
 	return (

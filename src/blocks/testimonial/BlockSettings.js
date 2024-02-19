@@ -1,6 +1,6 @@
 import React from "react";
 import {InspectorControls} from "@wordpress/block-editor";
-import {ColorPalette, PanelBody, PanelHeader, PanelRow, SelectControl} from "@wordpress/components";
+import {ColorPalette, ColorPicker, PanelBody, PanelHeader, PanelRow, SelectControl} from "@wordpress/components";
 
 export class BlockSettings extends React.Component {
     render(){
@@ -22,11 +22,10 @@ export class BlockSettings extends React.Component {
                         />
                     </PanelRow>
                     <PanelRow>
-                        <PanelHeader
-                            label="Border color"
-                        />
+                        Border Color
+                    </PanelRow>
+                    <PanelRow>
                         <ColorPalette
-                            label="Border Color"
                             colors={[
                                 {name: 'blue', color: '#5151ff'},
                                 {name: 'red', color: '#ef725e'},
@@ -35,6 +34,15 @@ export class BlockSettings extends React.Component {
                             value={attributes.borderColor}
                             onChange={borderColor => setAttributes({borderColor})}
                             disableCustomColors={true}
+                        />
+                    </PanelRow>
+                    <PanelRow>
+                        Text Color
+                    </PanelRow>
+                    <PanelRow>
+                        <ColorPicker
+                            color={attributes.textColor}
+                            onChange={textColor => setAttributes({textColor})}
                         />
                     </PanelRow>
                 </PanelBody>

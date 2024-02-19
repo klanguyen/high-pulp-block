@@ -47,10 +47,7 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
         value: 'bg-primary-red',
         label: 'Primary Red'
       }]
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelHeader, {
-      label: "Border color"
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
-      label: "Border Color",
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Border Color"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
       colors: [{
         name: 'blue',
         color: '#5151ff'
@@ -66,6 +63,11 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
         borderColor
       }),
       disableCustomColors: true
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Text Color"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+      color: attributes.textColor,
+      onChange: textColor => setAttributes({
+        textColor
+      })
     }))));
   }
 }
@@ -136,7 +138,8 @@ function Edit({
   //const attributes = props.attributes;
   //const {attributes, setAttributes} = props;
   const divStyles = {
-    borderColor: attributes.borderColor
+    borderColor: attributes.borderColor,
+    color: attributes.textColor
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
@@ -294,7 +297,8 @@ function save({
 }) {
   let starIcons = Array(5).fill('★', 0, attributes.stars).join('');
   const divStyles = {
-    borderColor: attributes.borderColor
+    borderColor: attributes.borderColor,
+    color: attributes.textColor
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
@@ -450,7 +454,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/testimonial","version":"0.1.0","title":"Pulpy Testimonial","category":"design","icon":"testimonial","description":"Extra pulpy testimonial.","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["testimonial","kn","kn plugins","pulp"],"attributes":{"quote":{"type":"string","source":"html","selector":".quote"},"stars":{"type":"number","default":3},"imgUrl":{"type":"string","default":"https://placehold.it/75"},"author":{"type":"string","source":"text","selector":".author"},"location":{"type":"string","source":"text","selector":".location"},"backgroundColorClass":{"type":"string"},"borderColor":{"type":"string"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/testimonial","version":"0.1.0","title":"Pulpy Testimonial","category":"design","icon":"testimonial","description":"Extra pulpy testimonial.","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["testimonial","kn","kn plugins","pulp"],"attributes":{"quote":{"type":"string","source":"html","selector":".quote"},"stars":{"type":"number","default":3},"imgUrl":{"type":"string","default":"https://placehold.it/75"},"author":{"type":"string","source":"text","selector":".author"},"location":{"type":"string","source":"text","selector":".location"},"backgroundColorClass":{"type":"string"},"borderColor":{"type":"string"},"textColor":{"type":"string"}}}');
 
 /***/ })
 
