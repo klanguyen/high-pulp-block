@@ -11,7 +11,14 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {MediaUpload, MediaUploadCheck, PlainText, RichText, useBlockProps} from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck, PanelColorSettings,
+	PlainText,
+	RichText,
+	useBlockProps
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,9 +37,37 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({attributes, setAttributes}) {
+	const {backgroundColor, dividerColor} = attributes;
+
+	const onChangeBackgroundColor = (newBackgroundColor) => {
+		setAttributes({backgroundColor: newBackgroundColor})
+	}
+
+	const onChangeDividerColor = (newDividerColor) => {
+		setAttributes({dividerColor: newDividerColor})
+	}
 	return (
 		<div { ...useBlockProps() }>
-			<div className="project">
+			<InspectorControls>
+				<PanelColorSettings
+					title={__('Color settings', 'high-pulp-blocks')}
+					initialOpen={false}
+					colorSettings={	[
+						{
+							value: dividerColor,
+							onChange: onChangeDividerColor,
+							label: __('Divider color', 'high-pulp-blocks')
+						},
+						{
+							value: backgroundColor,
+							onChange: onChangeBackgroundColor,
+							label: __('Background color', 'high-pulp-blocks')
+						}
+					] }
+				/>
+			</InspectorControls>
+			<div className="project"
+				 style={{backgroundColor: backgroundColor}}>
 				<MediaUploadCheck>
 					<MediaUpload
 						allowedTypes={['image']}
@@ -54,7 +89,8 @@ export default function Edit({attributes, setAttributes}) {
 						value={attributes.title}
 						onChange={ title => setAttributes({title}) }
 					/>
-					<div className="divider"></div>
+					<div className="divider"
+						 style={{backgroundColor: dividerColor}}></div>
 					<RichText
 						className="project-summary"
 						tagName="p"

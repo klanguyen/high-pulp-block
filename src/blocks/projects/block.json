@@ -31,6 +31,14 @@
 		"projectImgUrl": {
 			"type": "string",
 			"default": "https://placehold.it/1000"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#18151f"
+		},
+		"dividerColor": {
+			"type": "string",
+			"default": "#0076bd"
 		}
 	}
 }

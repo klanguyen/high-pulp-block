@@ -55,10 +55,39 @@ function Edit({
   attributes,
   setAttributes
 }) {
+  const {
+    backgroundColor,
+    dividerColor
+  } = attributes;
+  const onChangeBackgroundColor = newBackgroundColor => {
+    setAttributes({
+      backgroundColor: newBackgroundColor
+    });
+  };
+  const onChangeDividerColor = newDividerColor => {
+    setAttributes({
+      dividerColor: newDividerColor
+    });
+  };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "project"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color settings', 'high-pulp-blocks'),
+    initialOpen: false,
+    colorSettings: [{
+      value: dividerColor,
+      onChange: onChangeDividerColor,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Divider color', 'high-pulp-blocks')
+    }, {
+      value: backgroundColor,
+      onChange: onChangeBackgroundColor,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'high-pulp-blocks')
+    }]
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "project",
+    style: {
+      backgroundColor: backgroundColor
+    }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
     allowedTypes: ['image'],
     onSelect: file => {
@@ -85,7 +114,10 @@ function Edit({
       title
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "divider"
+    className: "divider",
+    style: {
+      backgroundColor: dividerColor
+    }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     className: "project-summary",
     tagName: "p",
@@ -196,10 +228,17 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
+  const {
+    backgroundColor,
+    dividerColor
+  } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "project"
+    className: "project",
+    style: {
+      backgroundColor: backgroundColor
+    }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "project-img",
     src: attributes.projectImgUrl,
@@ -209,7 +248,10 @@ function save({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "project-title"
   }, attributes.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "divider"
+    className: "divider",
+    style: {
+      backgroundColor: dividerColor
+    }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     className: "project-summary",
     tagName: "p",
@@ -297,7 +339,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"},"backgroundColor":{"type":"string","default":"#18151f"},"dividerColor":{"type":"string","default":"#0076bd"}}}');
 
 /***/ })
 
