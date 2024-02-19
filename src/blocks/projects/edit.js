@@ -27,6 +27,7 @@ import {
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import {BlockSettings} from "./BlockSettings";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -37,37 +38,11 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({attributes, setAttributes}) {
-	const {backgroundColor, dividerColor} = attributes;
-
-	const onChangeBackgroundColor = (newBackgroundColor) => {
-		setAttributes({backgroundColor: newBackgroundColor})
-	}
-
-	const onChangeDividerColor = (newDividerColor) => {
-		setAttributes({dividerColor: newDividerColor})
-	}
 	return (
 		<div { ...useBlockProps() }>
-			<InspectorControls>
-				<PanelColorSettings
-					title={__('Color settings', 'high-pulp-blocks')}
-					initialOpen={false}
-					colorSettings={	[
-						{
-							value: dividerColor,
-							onChange: onChangeDividerColor,
-							label: __('Divider color', 'high-pulp-blocks')
-						},
-						{
-							value: backgroundColor,
-							onChange: onChangeBackgroundColor,
-							label: __('Background color', 'high-pulp-blocks')
-						}
-					] }
-				/>
-			</InspectorControls>
+			<BlockSettings attributes={attributes} setAttributes={setAttributes} />
 			<div className="project"
-				 style={{backgroundColor: backgroundColor}}>
+				 style={{backgroundColor: attributes.backgroundColor}}>
 				<MediaUploadCheck>
 					<MediaUpload
 						allowedTypes={['image']}
@@ -90,7 +65,7 @@ export default function Edit({attributes, setAttributes}) {
 						onChange={ title => setAttributes({title}) }
 					/>
 					<div className="divider"
-						 style={{backgroundColor: dividerColor}}></div>
+						 style={{backgroundColor: attributes.dividerColor}}></div>
 					<RichText
 						className="project-summary"
 						tagName="p"

@@ -16,16 +16,15 @@ import {RichText, useBlockProps} from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save({attributes}) {
-	const {backgroundColor, dividerColor} = attributes;
 	return (
 		<div { ...useBlockProps.save() }>
 			<div className="project"
-				 style={{backgroundColor: backgroundColor}}>
+				 style={{backgroundColor: attributes.backgroundColor}}>
 				<img className="project-img" src={attributes.projectImgUrl} alt="Photo of project"/>
 				<div className="project-body">
 					<h2 className="project-title">{attributes.title}</h2>
 					<div className="divider"
-					     style={{backgroundColor: dividerColor}}></div>
+					     style={{backgroundColor: attributes.dividerColor}}></div>
 					<RichText.Content
 						className="project-summary"
 						tagName="p"
