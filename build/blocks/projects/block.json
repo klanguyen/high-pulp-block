@@ -47,6 +47,18 @@
     },
     "blockTheme": {
       "type": "string"
+    },
+    "projectLink": {
+      "type": "string",
+      "default": ""
+    },
+    "linkLabel": {
+      "type": "string",
+      "default": "View project"
+    },
+    "hasLinkNofollow": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

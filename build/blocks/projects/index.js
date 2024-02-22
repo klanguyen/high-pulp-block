@@ -31,10 +31,7 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
       attributes,
       setAttributes
     } = this.props;
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-      title: "Basic",
-      initialOpen: true
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Color settings', 'high-pulp-blocks'),
       initialOpen: false,
       colorSettings: [{
@@ -54,7 +51,10 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
         },
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Background color', 'high-pulp-blocks')
       }]
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: "Block Theme",
+      initialOpen: true
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
       label: "Block Theme",
       value: attributes.blockTheme,
       onChange: blockTheme => setAttributes({
@@ -73,7 +73,31 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
         value: 'yellow',
         label: 'Yellow'
       }]
-    }))));
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: "Project Link Settings",
+      initialOpen: true
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+      label: "Project link",
+      value: attributes.projectLink,
+      onChange: projectLink => setAttributes({
+        projectLink
+      }),
+      help: "Add your project link"
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+      label: "Link label",
+      value: attributes.linkLabel,
+      onChange: linkLabel => setAttributes({
+        linkLabel
+      }),
+      help: "Add link label"
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+      label: "Add rel = nofollow",
+      help: attributes.hasLinkNofollow ? 'Has rel nofollow' : "No rel nofollow",
+      checked: attributes.hasLinkNofollow,
+      onChange: hasLinkNofollow => setAttributes({
+        hasLinkNofollow
+      })
+    })))));
   }
 }
 
@@ -97,6 +121,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/projects/editor.scss");
 /* harmony import */ var _BlockSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BlockSettings */ "./src/blocks/projects/BlockSettings.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
 
 /**
  * Retrieves the translation of text.
@@ -119,6 +145,8 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
+
+
 
 
 
@@ -184,7 +212,11 @@ function Edit({
     className: "tag-item"
   }, "HTML"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     className: "tag-item"
-  }, "Vue.js")))));
+  }, "Vue.js")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ExternalLink, {
+    href: attributes.projectLink,
+    className: "project-link",
+    rel: attributes.hasLinkNofollow ? "nofollow" : ""
+  }, attributes.linkLabel))));
 }
 
 /***/ }),
@@ -304,7 +336,11 @@ function save({
     className: "tag-item"
   }, "HTML"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     className: "tag-item"
-  }, "Vue.js")))));
+  }, "Vue.js")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: attributes.projectLink,
+    className: "project-link",
+    rel: attributes.hasLinkNofollow ? "nofollow" : "noopener noreferrer"
+  }, attributes.linkLabel)))));
 }
 
 /***/ }),
@@ -389,7 +425,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"},"backgroundColor":{"type":"string","default":"#18151f"},"dividerColor":{"type":"string","default":"#0076bd"},"blockTheme":{"type":"string"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"},"backgroundColor":{"type":"string","default":"#18151f"},"dividerColor":{"type":"string","default":"#0076bd"},"blockTheme":{"type":"string"},"projectLink":{"type":"string","default":""},"linkLabel":{"type":"string","default":"View project"},"hasLinkNofollow":{"type":"boolean","default":false}}}');
 
 /***/ })
 

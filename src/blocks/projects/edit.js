@@ -28,6 +28,8 @@ import {
  */
 import './editor.scss';
 import {BlockSettings} from "./BlockSettings";
+import {ExternalLink} from "@wordpress/components";
+import React from "react";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -78,6 +80,13 @@ export default function Edit({attributes, setAttributes}) {
 						<li className="tag-item">HTML</li>
 						<li className="tag-item">Vue.js</li>
 					</ul>
+					<ExternalLink
+						href={attributes.projectLink}
+						className="project-link"
+						rel={attributes.hasLinkNofollow ? "nofollow" : ""}
+					>
+						{attributes.linkLabel}
+					</ExternalLink>
 				</div>
 			</div>
 		</div>
