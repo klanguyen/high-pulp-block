@@ -21,6 +21,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 import {BlockSettings} from "./BlockSettings";
+import ServerSideRender from '@wordpress/server-side-render';
+import metadata from './block.json';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -52,5 +54,10 @@ export default function Edit({attributes, setAttributes}) {
 				</div>
 			</div>
 		</div>
+		// <ServerSideRender
+		// 	block={ metadata.name }
+		// 	skipBlockSupportAttributes
+		// 	attributes={ attributes }
+		// />
 	);
 }
