@@ -31,8 +31,21 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Staff List – hello from the editor!', 'staff-list' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			<div className="flip-card">
+				<div className="flip-card-inner">
+					<div className="flip-card-front">
+						<img src="https://2.gravatar.com/avatar/ea8b076b398ee48b71cfaecf898c582b?s=250&d=mm&r=g" />
+					</div>
+					<div className="flip-card-back">
+						<h3 className="name">Red Forman</h3>
+						<div className="position">Manager</div>
+						<div className="bio">
+							<p>If I Was A Bird, I’d Fly Into A Ceiling Fan.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 }
