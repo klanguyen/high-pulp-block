@@ -33,12 +33,10 @@ export default function save({attributes}) {
 						<li className="tag-item">HTML</li>
 						<li className="tag-item">Vue.js</li>
 					</ul>
-					<p>
-						<a href={attributes.projectLink}
+					<p><a href={attributes.projectLink}
 						   className="project-link"
 						   rel={ attributes.hasLinkNofollow ? "nofollow" : "noopener noreferrer"}
-					   	>{attributes.linkLabel}</a>
-					</p>
+					   	>{attributes.linkLabel}</a></p>
 				</div>
 			</div>
 		</div>

@@ -80,13 +80,13 @@ export default function Edit({attributes, setAttributes}) {
 						<li className="tag-item">HTML</li>
 						<li className="tag-item">Vue.js</li>
 					</ul>
-					<ExternalLink
+					<p><ExternalLink
 						href={attributes.projectLink}
 						className="project-link"
 						rel={attributes.hasLinkNofollow ? "nofollow" : ""}
 					>
 						{attributes.linkLabel}
-					</ExternalLink>
+					</ExternalLink></p>
 				</div>
 			</div>
 		</div>

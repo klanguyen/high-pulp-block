@@ -17,7 +17,7 @@ export class BlockSettings extends React.Component {
 
         return (
             <InspectorControls>
-				<PanelColorSettings
+				{/*<PanelColorSettings
 					title={__('Color settings', 'high-pulp-blocks')}
 					initialOpen={false}
 					colorSettings={	[
@@ -32,7 +32,7 @@ export class BlockSettings extends React.Component {
 							label: __('Background color', 'high-pulp-blocks')
 						}
 					] }
-				/>
+				/>*/}
                 <PanelBody title="Block Theme" initialOpen={true}>
                     <PanelRow>
 						<SelectControl

@@ -22,6 +22,17 @@
     "kn plugins",
     "projects"
   ],
+  "styles": [
+    {
+      "name": "light",
+      "label": "Light"
+    },
+    {
+      "name": "dark",
+      "label": "Dark",
+      "isDefault": true
+    }
+  ],
   "attributes": {
     "title": {
       "type": "string",

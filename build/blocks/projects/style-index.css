@@ -7,8 +7,13 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-kn-projects {
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  font-weight: initial;
+  color: #efefef;
+}
 .wp-block-kn-projects .project {
-  background-color: #18151f;
   flex-wrap: inherit;
   display: flex;
   box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
@@ -16,10 +21,6 @@
   margin: 0 0 2rem 0;
   overflow: hidden;
   position: relative;
-  color: #efefef;
-}
-.wp-block-kn-projects .project a {
-  color: #efefef;
 }
 .wp-block-kn-projects .project h2 {
   margin-bottom: 0.5rem;
@@ -27,7 +28,6 @@
   line-height: 1.2;
 }
 .wp-block-kn-projects .project .project-title {
-  color: #efefef;
   font-size: 2rem;
 }
 .wp-block-kn-projects .project .project-img {
@@ -83,6 +83,19 @@
 .wp-block-kn-projects .project .project-tag .tag-item:hover {
   background: rgba(83, 83, 83, 0.8);
 }
+.wp-block-kn-projects .project .project-link {
+  display: inline-block;
+  background: rgba(83, 83, 83, 0.4);
+  border-radius: 3px;
+  padding: 2.5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
 .wp-block-kn-projects .project:before {
   content: "";
   position: absolute;
@@ -117,11 +130,35 @@
 .wp-block-kn-projects .project::before {
   background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
 }
+.wp-block-kn-projects.is-style-light .project {
+  background-color: #e1e5ea;
+  color: #18151f;
+}
+.wp-block-kn-projects.is-style-light .project h2, .wp-block-kn-projects.is-style-light .project a {
+  color: #18151f;
+}
+.wp-block-kn-projects.is-style-light .project .project-body:before {
+  background: #e1e5ea;
+}
+.wp-block-kn-projects.is-style-dark .project {
+  background-color: #18151f;
+  color: #efefef;
+}
+.wp-block-kn-projects.is-style-dark .project h2, .wp-block-kn-projects.is-style-dark .project a {
+  color: #efefef;
+}
+.wp-block-kn-projects.is-style-dark .project .project-body:before {
+  background: #18151f;
+}
 .wp-block-kn-projects .blue .project-title:hover {
   color: #0076bd;
 }
 .wp-block-kn-projects .blue .divider {
   background-color: #0076bd;
+}
+.wp-block-kn-projects .blue .project-link:hover {
+  background: #0076bd;
+  color: black;
 }
 .wp-block-kn-projects .blue::before {
   background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
@@ -135,6 +172,10 @@
 .wp-block-kn-projects .red .divider {
   background-color: #bd150b;
 }
+.wp-block-kn-projects .red .project-link:hover {
+  background: #bd150b;
+  color: black;
+}
 .wp-block-kn-projects .red::before {
   background-image: linear-gradient(-30deg, rgba(189, 21, 11, 0.1), transparent 50%);
 }
@@ -147,6 +188,10 @@
 .wp-block-kn-projects .green .divider {
   background-color: #79dd09;
 }
+.wp-block-kn-projects .green .project-link:hover {
+  background: #79dd09;
+  color: black;
+}
 .wp-block-kn-projects .green::before {
   background-image: linear-gradient(-30deg, rgba(121, 221, 9, 0.1), transparent 50%);
 }
@@ -158,6 +203,10 @@
 }
 .wp-block-kn-projects .yellow .divider {
   background-color: #bdbb49;
+}
+.wp-block-kn-projects .yellow .project-link:hover {
+  background: #bdbb49;
+  color: black;
 }
 .wp-block-kn-projects .yellow::before {
   background-image: linear-gradient(-30deg, rgba(189, 187, 73, 0.1), transparent 50%);

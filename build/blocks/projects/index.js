@@ -31,27 +31,7 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
       attributes,
       setAttributes
     } = this.props;
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Color settings', 'high-pulp-blocks'),
-      initialOpen: false,
-      colorSettings: [{
-        value: attributes.dividerColor,
-        onChange: dividerColor => {
-          setAttributes({
-            dividerColor
-          });
-        },
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Divider color', 'high-pulp-blocks')
-      }, {
-        value: attributes.backgroundColor,
-        onChange: backgroundColor => {
-          setAttributes({
-            backgroundColor
-          });
-        },
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Background color', 'high-pulp-blocks')
-      }]
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
       title: "Block Theme",
       initialOpen: true
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
@@ -212,11 +192,11 @@ function Edit({
     className: "tag-item"
   }, "HTML"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     className: "tag-item"
-  }, "Vue.js")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ExternalLink, {
+  }, "Vue.js")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ExternalLink, {
     href: attributes.projectLink,
     className: "project-link",
     rel: attributes.hasLinkNofollow ? "nofollow" : ""
-  }, attributes.linkLabel))));
+  }, attributes.linkLabel)))));
 }
 
 /***/ }),
@@ -425,7 +405,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"},"backgroundColor":{"type":"string","default":"#18151f"},"dividerColor":{"type":"string","default":"#0076bd"},"blockTheme":{"type":"string"},"projectLink":{"type":"string","default":""},"linkLabel":{"type":"string","default":"View project"},"hasLinkNofollow":{"type":"boolean","default":false}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"styles":[{"name":"light","label":"Light"},{"name":"dark","label":"Dark","isDefault":true}],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"},"backgroundColor":{"type":"string","default":"#18151f"},"dividerColor":{"type":"string","default":"#0076bd"},"blockTheme":{"type":"string"},"projectLink":{"type":"string","default":""},"linkLabel":{"type":"string","default":"View project"},"hasLinkNofollow":{"type":"boolean","default":false}}}');
 
 /***/ })
 
