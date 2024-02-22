@@ -73,6 +73,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/staff-list/editor.scss");
 /* harmony import */ var _BlockSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BlockSettings */ "./src/blocks/staff-list/BlockSettings.js");
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/server-side-render */ "@wordpress/server-side-render");
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./block.json */ "./src/blocks/staff-list/block.json");
 
 /**
  * Retrieves the translation of text.
@@ -95,6 +98,8 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
+
+
 
 
 
@@ -138,7 +143,13 @@ function Edit({
     className: "position"
   }, "Manager"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bio"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "If I Was A Bird, I\u2019d Fly Into A Ceiling Fan."))))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "If I Was A Bird, I\u2019d Fly Into A Ceiling Fan."))))))
+  // <ServerSideRender
+  // 	block={ metadata.name }
+  // 	skipBlockSupportAttributes
+  // 	attributes={ attributes }
+  // />
+  ;
 }
 
 /***/ }),
@@ -262,6 +273,16 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "@wordpress/server-side-render":
+/*!******************************************!*\
+  !*** external ["wp","serverSideRender"] ***!
+  \******************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["serverSideRender"];
 
 /***/ }),
 
