@@ -41,8 +41,8 @@ export default function Edit({attributes, setAttributes}) {
 	return (
 		<div { ...useBlockProps() }>
 			<BlockSettings attributes={attributes} setAttributes={setAttributes} />
-			<div className="project"
-				 style={{backgroundColor: attributes.backgroundColor}}>
+			<div className={`project ${attributes.blockTheme}`}
+				 >
 				<MediaUploadCheck>
 					<MediaUpload
 						allowedTypes={['image']}
@@ -65,7 +65,7 @@ export default function Edit({attributes, setAttributes}) {
 						onChange={ title => setAttributes({title}) }
 					/>
 					<div className="divider"
-						 style={{backgroundColor: attributes.dividerColor}}></div>
+						 ></div>
 					<RichText
 						className="project-summary"
 						tagName="p"

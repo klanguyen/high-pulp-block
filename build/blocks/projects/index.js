@@ -54,7 +54,26 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
         },
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Background color', 'high-pulp-blocks')
       }]
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null)));
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+      label: "Block Theme",
+      value: attributes.blockTheme,
+      onChange: blockTheme => setAttributes({
+        blockTheme
+      }),
+      options: [{
+        value: 'blue',
+        label: 'Blue'
+      }, {
+        value: 'red',
+        label: 'Red'
+      }, {
+        value: 'green',
+        label: 'Green'
+      }, {
+        value: 'yellow',
+        label: 'Yellow'
+      }]
+    }))));
   }
 }
 
@@ -121,10 +140,7 @@ function Edit({
     attributes: attributes,
     setAttributes: setAttributes
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "project",
-    style: {
-      backgroundColor: attributes.backgroundColor
-    }
+    className: `project ${attributes.blockTheme}`
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
     allowedTypes: ['image'],
     onSelect: file => {
@@ -151,10 +167,7 @@ function Edit({
       title
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "divider",
-    style: {
-      backgroundColor: attributes.dividerColor
-    }
+    className: "divider"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     className: "project-summary",
     tagName: "p",
@@ -268,10 +281,7 @@ function save({
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "project",
-    style: {
-      backgroundColor: attributes.backgroundColor
-    }
+    className: `project ${attributes.blockTheme}`
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "project-img",
     src: attributes.projectImgUrl,
@@ -281,10 +291,7 @@ function save({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "project-title"
   }, attributes.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "divider",
-    style: {
-      backgroundColor: attributes.dividerColor
-    }
+    className: "divider"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     className: "project-summary",
     tagName: "p",
@@ -382,7 +389,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"},"backgroundColor":{"type":"string","default":"#18151f"},"dividerColor":{"type":"string","default":"#0076bd"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/projects","version":"0.1.0","title":"Featured Project","category":"design","icon":"portfolio","description":"Add some featured projects to your portfolio site","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["featured projects","kn","kn plugins","projects"],"attributes":{"title":{"type":"string","source":"text","selector":".project-title"},"summary":{"type":"string","source":"html","selector":".project-summary"},"projectImgUrl":{"type":"string","default":"https://placehold.it/1000"},"backgroundColor":{"type":"string","default":"#18151f"},"dividerColor":{"type":"string","default":"#0076bd"},"blockTheme":{"type":"string"}}}');
 
 /***/ })
 

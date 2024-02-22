@@ -39,6 +39,9 @@
 		"dividerColor": {
 			"type": "string",
 			"default": "#0076bd"
+		},
+		"blockTheme": {
+			"type": "string"
 		}
 	}
 }

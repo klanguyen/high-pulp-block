@@ -1,6 +1,6 @@
 import React from "react";
 import {InspectorControls, PanelColorSettings} from "@wordpress/block-editor";
-import {PanelBody, PanelRow} from "@wordpress/components";
+import {PanelBody, PanelRow, SelectControl} from "@wordpress/components";
 import {__} from "@wordpress/i18n";
 
 export class BlockSettings extends React.Component {
@@ -27,8 +27,18 @@ export class BlockSettings extends React.Component {
                         ] }
                     />
                     <PanelRow>
-
-                    </PanelRow>
+						<SelectControl
+							label="Block Theme"
+							value={attributes.blockTheme}
+							onChange={blockTheme => setAttributes({blockTheme})}
+							options={[
+								{value: 'blue', label: 'Blue'},
+								{value: 'red', label: 'Red'},
+								{value: 'green', label: 'Green'},
+								{value: 'yellow', label: 'Yellow'},
+							]}
+						/>
+					</PanelRow>
                 </PanelBody>
             </InspectorControls>
         )

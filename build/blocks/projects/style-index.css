@@ -30,9 +30,6 @@
   color: #efefef;
   font-size: 2rem;
 }
-.wp-block-kn-projects .project .project-title:hover {
-  color: #0076bd;
-}
 .wp-block-kn-projects .project .project-img {
   max-width: 300px;
   max-height: 100%;
@@ -47,7 +44,7 @@
   height: 10px;
   margin: 10px 0;
   border-radius: 5px;
-  background-color: #0076bd;
+  background-color: #424242;
   transition: width 0.2s ease;
 }
 .wp-block-kn-projects .project .project-body {
@@ -119,6 +116,54 @@
 }
 .wp-block-kn-projects .project::before {
   background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .blue .project-title:hover {
+  color: #0076bd;
+}
+.wp-block-kn-projects .blue .divider {
+  background-color: #0076bd;
+}
+.wp-block-kn-projects .blue::before {
+  background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .blue:nth-child(even)::before {
+  background-image: linear-gradient(30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .red .project-title:hover {
+  color: #bd150b;
+}
+.wp-block-kn-projects .red .divider {
+  background-color: #bd150b;
+}
+.wp-block-kn-projects .red::before {
+  background-image: linear-gradient(-30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .red:nth-child(even)::before {
+  background-image: linear-gradient(30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .green .project-title:hover {
+  color: #79dd09;
+}
+.wp-block-kn-projects .green .divider {
+  background-color: #79dd09;
+}
+.wp-block-kn-projects .green::before {
+  background-image: linear-gradient(-30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .green:nth-child(even)::before {
+  background-image: linear-gradient(30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .yellow .project-title:hover {
+  color: #bdbb49;
+}
+.wp-block-kn-projects .yellow .divider {
+  background-color: #bdbb49;
+}
+.wp-block-kn-projects .yellow::before {
+  background-image: linear-gradient(-30deg, rgba(189, 187, 73, 0.1), transparent 50%);
+}
+.wp-block-kn-projects .yellow:nth-child(even)::before {
+  background-image: linear-gradient(30deg, rgba(189, 187, 73, 0.1), transparent 50%);
 }
 
 /*# sourceMappingURL=style-index.css.map*/

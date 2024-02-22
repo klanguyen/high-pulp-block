@@ -5,6 +5,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+@import "../../scss/variables";
+
 .wp-block-kn-projects {
 	.project {
 		background-color: #18151f;
@@ -32,10 +34,6 @@
 		.project-title {
 			color: #efefef;
 			font-size: 2rem;
-
-			&:hover {
-				color: #0076bd;
-			}
 		}
 
 		.project-img {
@@ -52,7 +50,7 @@
 			height: 10px;
 			margin: 10px 0;
 			border-radius: 5px;
-			background-color: #0076bd;
+			background-color: #424242;
 			transition: width 0.2s ease;
 		}
 
@@ -135,6 +133,86 @@
 
 		&::before {
 			background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+		}
+	}
+
+	.blue {
+		.project-title {
+			&:hover {
+				color: $main-blue;
+			}
+		}
+
+		.divider {
+			background-color: $main-blue;
+		}
+
+		&::before {
+			background-image: linear-gradient(-30deg, $main-blue-rgb-015, transparent 50%);
+		}
+
+		&:nth-child(even)::before {
+			background-image: linear-gradient(30deg, $main-blue-rgb-015, transparent 50%);
+		}
+	}
+
+	.red {
+		.project-title {
+			&:hover {
+				color: $main-red;
+			}
+		}
+
+		.divider {
+			background-color: $main-red;
+		}
+
+		&::before {
+			background-image: linear-gradient(-30deg, $main-red-rgb-015, transparent 50%);
+		}
+
+		&:nth-child(even)::before {
+			background-image: linear-gradient(30deg, $main-red-rgb-015, transparent 50%);
+		}
+	}
+
+	.green {
+		.project-title {
+			&:hover {
+				color: $main-green;
+			}
+		}
+
+		.divider {
+			background-color: $main-green;
+		}
+
+		&::before {
+			background-image: linear-gradient(-30deg, $main-green-rgb-015, transparent 50%);
+		}
+
+		&:nth-child(even)::before {
+			background-image: linear-gradient(30deg, $main-green-rgb-015, transparent 50%);
+		}
+	}
+
+	.yellow {
+		.project-title {
+			&:hover {
+				color: $main-yellow;
+			}
+		}
+
+		.divider {
+			background-color: $main-yellow;
+		}
+
+		&::before {
+			background-image: linear-gradient(-30deg, $main-yellow-rgb-015, transparent 50%);
+		}
+
+		&:nth-child(even)::before {
+			background-image: linear-gradient(30deg, $main-yellow-rgb-015, transparent 50%);
 		}
 	}
 }
