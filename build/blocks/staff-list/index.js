@@ -52,9 +52,25 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Staff List – hello from the editor!', 'staff-list'));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flip-card"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flip-card-inner"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flip-card-front"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: "https://2.gravatar.com/avatar/ea8b076b398ee48b71cfaecf898c582b?s=250&d=mm&r=g"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flip-card-back"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "name"
+  }, "Red Forman"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "position"
+  }, "Manager"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bio"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "If I Was A Bird, I\u2019d Fly Into A Ceiling Fan."))))));
 }
 
 /***/ }),
