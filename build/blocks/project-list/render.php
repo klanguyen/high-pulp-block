@@ -33,10 +33,13 @@ $query = new WP_Query([
 			<p>
 				<?= get_the_content() ?>
 			</p>
-			<span class="tech-tag">Technology</span>
-			<script>
-				console.log(<?= get_post_meta(get_the_ID(), 'project_technologies', true) ?>)
-			</script>
+			<?php
+			$technologies = get_post_meta(get_the_ID(), 'project_technologies', true);
+			foreach($technologies as $tech){
+				echo "<span class='tech-tag tag-teal'>$tech</span>";
+			}
+			?>
+
 		</div>
 	</div>
 	<?php endwhile; ?>
