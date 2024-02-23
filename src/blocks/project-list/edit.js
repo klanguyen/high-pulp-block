@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {MediaUpload, MediaUploadCheck, PlainText, RichText, useBlockProps} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -20,6 +20,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import {ExternalLink} from "@wordpress/components";
+import React from "react";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,8 +33,22 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Project List – hello from the editor!', 'project-list' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			<div className="project-card">
+				<div className="project-card-header">
+					<img src="https://placehold.it/1000" alt="rover" />
+				</div>
+				<div className="project-card-body">
+					<h6>
+						Why is the Tesla Cybertruck designed the way it
+						is?
+					</h6>
+					<p>
+						An exploration into the truck's polarising design
+					</p>
+					<span className="tech-tag">Technology</span>
+				</div>
+			</div>
+		</div>
 	);
 }

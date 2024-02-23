@@ -19,6 +19,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/project-list/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
 
 /**
  * Retrieves the translation of text.
@@ -43,6 +45,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -52,9 +56,20 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Project List – hello from the editor!', 'project-list'));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "project-card"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "project-card-header"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: "https://placehold.it/1000",
+    alt: "rover"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "project-card-body"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", null, "Why is the Tesla Cybertruck designed the way it is?"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "An exploration into the truck's polarising design"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "tech-tag"
+  }, "Technology"))));
 }
 
 /***/ }),
@@ -161,6 +176,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -177,7 +202,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/project-list","version":"0.1.0","title":"Project List","category":"design","icon":"index-card","description":"Display your project from a custom post type.","example":{},"supports":{"html":false},"textdomain":"project-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js","keywords":["kn","kn block","project list"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/project-list","version":"0.1.0","title":"Project List","category":"design","icon":"index-card","description":"Display your project from a custom post type.","example":{},"supports":{"html":false},"textdomain":"project-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js","keywords":["kn","kn block","project list"],"attributes":{}}');
 
 /***/ })
 

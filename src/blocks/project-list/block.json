@@ -17,5 +17,8 @@
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
 	"viewScript": "file:./view.js",
-	"keywords": ["kn", "kn block", "project list"]
+	"keywords": ["kn", "kn block", "project list"],
+	"attributes": {
+
+	}
 }
