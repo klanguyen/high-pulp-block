@@ -26,7 +26,7 @@ $query = new WP_Query([
 		</div>
 		<div class="project-card-body">
 			<h3>
-				<a href="<?= get_the_permalink() ?>">
+				<a href="#modal-opened" id="modal-closed">
 					<?= get_the_title() ?>
 				</a>
 			</h3>
@@ -39,6 +39,22 @@ $query = new WP_Query([
 				echo "<span class='tech-tag tag-teal'>$tech</span>";
 			}
 			?>
+
+		</div>
+	</div>
+
+	<div class="modal-container" id="modal-opened">
+		<div class="modal">
+			<div class="modal__details">
+				<h1 class="modal__title"><?= get_the_title(); ?></h1>
+				<p class="modal__description"><?= get_the_excerpt(); ?></p>
+			</div>
+
+			<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
+
+			<button class="modal__btn">Button &rarr;</button>
+
+			<a href="#modal-closed" class="link-2"></a>
 
 		</div>
 	</div>
