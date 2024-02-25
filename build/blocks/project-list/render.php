@@ -26,36 +26,21 @@ $query = new WP_Query([
 		</div>
 		<div class="project-card-body">
 			<h3>
-				<a href="#modal-opened" id="modal-closed">
+				<a href="<?= get_the_permalink() ?>">
 					<?= get_the_title() ?>
 				</a>
 			</h3>
 			<p>
-				<?= get_the_content() ?>
+				<?= get_post_meta(get_the_ID(), 'brief_description', true) ?>
 			</p>
+			<div class="technologies-list">
 			<?php
 			$technologies = get_post_meta(get_the_ID(), 'project_technologies', true);
 			foreach($technologies as $tech){
-				echo "<span class='tech-tag tag-teal'>$tech</span>";
+				echo "<span class='tech-item'>$tech</span>";
 			}
 			?>
-
-		</div>
-	</div>
-
-	<div class="modal-container" id="modal-opened">
-		<div class="modal">
-			<div class="modal__details">
-				<h1 class="modal__title"><?= get_the_title(); ?></h1>
-				<p class="modal__description"><?= get_the_excerpt(); ?></p>
 			</div>
-
-			<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
-
-			<button class="modal__btn">Button &rarr;</button>
-
-			<a href="#modal-closed" class="link-2"></a>
-
 		</div>
 	</div>
 	<?php endwhile; ?>
