@@ -1,7 +1,7 @@
 import {createHigherOrderComponent} from '@wordpress/compose';
 import {Fragment} from '@wordpress/element';
-import {InspectorControls} from "@wordpress/block-editor";
-import {PanelBody, PanelRow, SelectControl, TextControl} from "@wordpress/components";
+import {InspectorControls, PanelColorSettings} from "@wordpress/block-editor";
+import {PanelBody, PanelRow, RangeControl, SelectControl, TextControl} from "@wordpress/components";
 import {addFilter} from '@wordpress/hooks';
 import React from "react";
 
@@ -14,8 +14,7 @@ function blockWrapper(WrappedBlock) {
 
 			let divStyles = {
 				borderStyle: attributes.borderStyle || 'none',
-				borderWidth: '2px',
-				borderColor: 'black',
+				borderColor: attributes.borderColor,
 				//padding: attributes.borderPadding + 'px',
 				padding: `${attributes.borderPadding}px`,
 			}
@@ -42,9 +41,19 @@ function blockWrapper(WrappedBlock) {
 								<TextControl
 									label="Padding"
 									value={attributes.borderPadding}
-									onChange={value => setAttributes({borderPadding: parseInt(value)})}
+									onChange={value => setAttributes({borderPadding: parseFloat(value)})}
 								/> px
 							</PanelRow>
+							<PanelColorSettings
+								title="Colors"
+								colorSettings={[
+									{
+										label: "Border color",
+										value: attributes.borderColor,
+										onChange: borderColor => setAttributes({borderColor})
+									}
+								]}
+							/>
 						</PanelBody>
 					</InspectorControls>
 

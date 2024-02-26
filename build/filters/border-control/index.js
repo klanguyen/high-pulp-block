@@ -40,8 +40,7 @@ function blockWrapper(WrappedBlock) {
       } = this.props;
       let divStyles = {
         borderStyle: attributes.borderStyle || 'none',
-        borderWidth: '2px',
-        borderColor: 'black',
+        borderColor: attributes.borderColor,
         //padding: attributes.borderPadding + 'px',
         padding: `${attributes.borderPadding}px`
       };
@@ -71,9 +70,18 @@ function blockWrapper(WrappedBlock) {
         label: "Padding",
         value: attributes.borderPadding,
         onChange: value => setAttributes({
-          borderPadding: parseInt(value)
+          borderPadding: parseFloat(value)
         })
-      }), " px"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      }), " px"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.PanelColorSettings, {
+        title: "Colors",
+        colorSettings: [{
+          label: "Border color",
+          value: attributes.borderColor,
+          onChange: borderColor => setAttributes({
+            borderColor
+          })
+        }]
+      }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "wp-block",
         style: divStyles
       }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(WrappedBlock, {
@@ -117,6 +125,10 @@ function addBorderAttributes(settings, name) {
   settings.attributes.borderPadding = {
     type: 'number',
     default: 10
+  };
+  settings.attributes.borderColor = {
+    type: 'string',
+    default: ''
   };
   return settings;
 }

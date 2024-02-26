@@ -16,6 +16,11 @@ function addBorderAttributes(settings, name) {
 		default: 10,
 	}
 
+	settings.attributes.borderColor = {
+		type: 'string',
+		default: '',
+	}
+
 	return settings;
 }
 
