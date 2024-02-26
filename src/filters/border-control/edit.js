@@ -56,4 +56,4 @@ function blockWrapper(WrappedBlock) {
 const borderComponent = createHigherOrderComponent(blockWrapper, 'border-control');
 
 // register our filter with WordPress
-addFilter('editor.BlockEdit', 'your-plugin-name/border-control/block-wrapper', borderComponent);
+addFilter('editor.BlockEdit', 'kn/border-control/block-wrapper', borderComponent);

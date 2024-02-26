@@ -15,4 +15,4 @@ function addBorderAttributes(settings, name) {
 	return settings;
 }
 
-addFilter('blocks.registerBlockType', 'your-plugin-name/border-control/add-border-attributes', addBorderAttributes);
+addFilter('blocks.registerBlockType', 'kn/border-control/add-border-attributes', addBorderAttributes);

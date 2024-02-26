@@ -82,7 +82,7 @@ function blockWrapper(WrappedBlock) {
 const borderComponent = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__.createHigherOrderComponent)(blockWrapper, 'border-control');
 
 // register our filter with WordPress
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_5__.addFilter)('editor.BlockEdit', 'your-plugin-name/border-control/block-wrapper', borderComponent);
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_5__.addFilter)('editor.BlockEdit', 'kn/border-control/block-wrapper', borderComponent);
 
 /***/ }),
 
@@ -110,7 +110,7 @@ function addBorderAttributes(settings, name) {
 
   return settings;
 }
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addFilter)('blocks.registerBlockType', 'your-plugin-name/border-control/add-border-attributes', addBorderAttributes);
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addFilter)('blocks.registerBlockType', 'kn/border-control/add-border-attributes', addBorderAttributes);
 
 /***/ }),
 
