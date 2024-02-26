@@ -22,5 +22,9 @@
     "kn block",
     "project list"
   ],
-  "attributes": {}
+  "attributes": {
+    "headingColor": {
+      "type": "string"
+    }
+  }
 }

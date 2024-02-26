@@ -22,6 +22,7 @@ import {MediaUpload, MediaUploadCheck, PlainText, RichText, useBlockProps} from 
 import './editor.scss';
 import {ExternalLink} from "@wordpress/components";
 import React from "react";
+import {BlockSettings} from "./BlockSettings";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,22 +32,34 @@ import React from "react";
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit({attributes, setAttributes}) {
 	return (
 		<div { ...useBlockProps() }>
-			<div className="project-card">
+			<BlockSettings attributes={attributes} setAttributes={setAttributes} />
+			{/*<div className="project-card">
 				<div className="project-card-header">
 					<img src="https://placehold.it/1000" alt="rover" />
 				</div>
 				<div className="project-card-body">
 					<h6>
-						Why is the Tesla Cybertruck designed the way it
-						is?
+						Why is the Tesla Cybertruck designed the way it is?
 					</h6>
 					<p>
 						An exploration into the truck's polarising design
 					</p>
 					<span className="tech-tag">Technology</span>
+				</div>
+			</div>*/}
+			<div className="project-card">
+				<img className="project-img" src="https://placehold.it/1000" alt="A featured picture" />
+				<div className="project-info">
+					<h2 className="project-title" style={{color: attributes.headingColor}}>Popcorn</h2>
+					<span className="brief-desc">A movie library</span>
+					<ul className="technologies-list">
+						<li className="tech-item">CSS</li>
+						<li className="tech-item">HTML</li>
+						<li className="tech-item">WordPress</li>
+					</ul>
 				</div>
 			</div>
 		</div>

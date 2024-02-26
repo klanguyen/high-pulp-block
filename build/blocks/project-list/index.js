@@ -2,6 +2,47 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/blocks/project-list/BlockSettings.js":
+/*!**************************************************!*\
+  !*** ./src/blocks/project-list/BlockSettings.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BlockSettings: () => (/* binding */ BlockSettings)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  render() {
+    const {
+      attributes,
+      setAttributes
+    } = this.props;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
+      title: "Colors",
+      colorSettings: [{
+        label: "Heading color",
+        value: attributes.headingColor,
+        onChange: headingColor => setAttributes({
+          headingColor
+        })
+      }]
+    }));
+  }
+}
+
+/***/ }),
+
 /***/ "./src/blocks/project-list/edit.js":
 /*!*****************************************!*\
   !*** ./src/blocks/project-list/edit.js ***!
@@ -21,6 +62,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/project-list/editor.scss");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _BlockSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./BlockSettings */ "./src/blocks/project-list/BlockSettings.js");
 
 /**
  * Retrieves the translation of text.
@@ -47,6 +89,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -55,21 +98,39 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
+function Edit({
+  attributes,
+  setAttributes
+}) {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_BlockSettings__WEBPACK_IMPORTED_MODULE_5__.BlockSettings, {
+    attributes: attributes,
+    setAttributes: setAttributes
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "project-card"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "project-card-header"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "project-img",
     src: "https://placehold.it/1000",
-    alt: "rover"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "project-card-body"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", null, "Why is the Tesla Cybertruck designed the way it is?"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "An exploration into the truck's polarising design"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "tech-tag"
-  }, "Technology"))));
+    alt: "A featured picture"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "project-info"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "project-title",
+    style: {
+      color: attributes.headingColor
+    }
+  }, "Popcorn"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "brief-desc"
+  }, "A movie library"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    className: "technologies-list"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tech-item"
+  }, "CSS"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tech-item"
+  }, "HTML"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "tech-item"
+  }, "WordPress")))));
 }
 
 /***/ }),
@@ -202,7 +263,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/project-list","version":"0.1.0","title":"Project List","category":"design","icon":"index-card","description":"Display your project from a custom post type.","example":{},"supports":{"html":false},"textdomain":"project-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js","keywords":["kn","kn block","project list"],"attributes":{}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/project-list","version":"0.1.0","title":"Project List","category":"design","icon":"index-card","description":"Display your project from a custom post type.","example":{},"supports":{"html":false},"textdomain":"project-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js","keywords":["kn","kn block","project list"],"attributes":{"headingColor":{"type":"string"}}}');
 
 /***/ })
 

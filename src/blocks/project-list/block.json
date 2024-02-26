@@ -19,6 +19,8 @@
 	"viewScript": "file:./view.js",
 	"keywords": ["kn", "kn block", "project list"],
 	"attributes": {
-
+		"headingColor": {
+			"type": "string"
+		}
 	}
 }
