@@ -43,7 +43,8 @@ function blockWrapper(WrappedBlock) {
         borderWidth: `${attributes.borderWidth}px`,
         borderColor: attributes.borderColor,
         //padding: attributes.borderPadding + 'px',
-        padding: `${attributes.borderPadding}px`
+        padding: `${attributes.borderPadding}px`,
+        borderRadius: `${attributes.borderRadius}px`
       };
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Border Controls",
@@ -73,7 +74,7 @@ function blockWrapper(WrappedBlock) {
         onChange: value => setAttributes({
           borderPadding: parseInt(value)
         })
-      }), " px"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+      }), " px"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
         label: "Border width",
         value: attributes.borderWidth,
         onChange: value => setAttributes({
@@ -82,7 +83,39 @@ function blockWrapper(WrappedBlock) {
         min: 0.5,
         max: 5,
         step: 0.5,
-        withInputField: true
+        withInputField: true,
+        afterIcon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Icon, {
+          icon: () => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+            height: "24",
+            width: "24",
+            xmlns: "http://www.w3.org/2000/svg"
+          }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("text", {
+            x: "5",
+            y: "15",
+            fill: "black"
+          }, "px"))
+        })
+      })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+        label: "Border radius",
+        value: attributes.borderRadius,
+        onChange: value => setAttributes({
+          borderRadius: parseInt(value)
+        }),
+        min: 0,
+        max: 10,
+        step: 1,
+        withInputField: true,
+        afterIcon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Icon, {
+          icon: () => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+            height: "24",
+            width: "24",
+            xmlns: "http://www.w3.org/2000/svg"
+          }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("text", {
+            x: "5",
+            y: "15",
+            fill: "black"
+          }, "px"))
+        })
       })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.PanelColorSettings, {
         title: "Colors",
         colorSettings: [{
@@ -144,6 +177,10 @@ function addBorderAttributes(settings, name) {
   settings.attributes.borderWidth = {
     type: 'number',
     default: 1
+  };
+  settings.attributes.borderRadius = {
+    type: 'number',
+    default: 0
   };
   return settings;
 }

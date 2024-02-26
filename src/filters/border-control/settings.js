@@ -26,6 +26,11 @@ function addBorderAttributes(settings, name) {
 		default: 1,
 	}
 
+	settings.attributes.borderRadius = {
+		type: 'number',
+		default: 0,
+	}
+
 	return settings;
 }
 

@@ -1,7 +1,7 @@
 import {createHigherOrderComponent} from '@wordpress/compose';
 import {Fragment} from '@wordpress/element';
 import {InspectorControls, PanelColorSettings} from "@wordpress/block-editor";
-import {PanelBody, PanelRow, RangeControl, SelectControl, TextControl} from "@wordpress/components";
+import {Icon, PanelBody, PanelRow, RangeControl, SelectControl, TextControl} from "@wordpress/components";
 import {addFilter} from '@wordpress/hooks';
 import React from "react";
 
@@ -18,6 +18,7 @@ function blockWrapper(WrappedBlock) {
 				borderColor: attributes.borderColor,
 				//padding: attributes.borderPadding + 'px',
 				padding: `${attributes.borderPadding}px`,
+				borderRadius: `${attributes.borderRadius}px`
 			}
 
 			return (
@@ -45,7 +46,7 @@ function blockWrapper(WrappedBlock) {
 									onChange={value => setAttributes({borderPadding: parseInt(value)})}
 								/> px
 							</PanelRow>
-							<PanelRow>
+							<PanelBody>
 								<RangeControl
 									label="Border width"
 									value={attributes.borderWidth}
@@ -54,8 +55,33 @@ function blockWrapper(WrappedBlock) {
 									max={5}
 									step={0.5}
 									withInputField={true}
+									afterIcon={<Icon
+										icon={ () => (
+											<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+												<text x="5" y="15" fill="black">px</text>
+											</svg>
+										) }
+									/>}
 								/>
-							</PanelRow>
+							</PanelBody>
+							<PanelBody>
+								<RangeControl
+									label="Border radius"
+									value={attributes.borderRadius}
+									onChange={value => setAttributes({borderRadius: parseInt(value)})}
+									min={0}
+									max={10}
+									step={1}
+									withInputField={true}
+									afterIcon={<Icon
+										icon={ () => (
+											<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+												<text x="5" y="15" fill="black">px</text>
+											</svg>
+										) }
+									/>}
+								/>
+							</PanelBody>
 							<PanelColorSettings
 								title="Colors"
 								colorSettings={[
