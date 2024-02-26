@@ -14,6 +14,7 @@ function blockWrapper(WrappedBlock) {
 
 			let divStyles = {
 				borderStyle: attributes.borderStyle || 'none',
+				borderWidth: `${attributes.borderWidth}px`,
 				borderColor: attributes.borderColor,
 				//padding: attributes.borderPadding + 'px',
 				padding: `${attributes.borderPadding}px`,
@@ -41,8 +42,19 @@ function blockWrapper(WrappedBlock) {
 								<TextControl
 									label="Padding"
 									value={attributes.borderPadding}
-									onChange={value => setAttributes({borderPadding: parseFloat(value)})}
+									onChange={value => setAttributes({borderPadding: parseInt(value)})}
 								/> px
+							</PanelRow>
+							<PanelRow>
+								<RangeControl
+									label="Border width"
+									value={attributes.borderWidth}
+									onChange={value => setAttributes({borderWidth: parseFloat(value)})}
+									min={0.5}
+									max={5}
+									step={0.5}
+									withInputField={true}
+								/>
 							</PanelRow>
 							<PanelColorSettings
 								title="Colors"

@@ -4,7 +4,8 @@ function kn_add_borders( $block_content = '', $block = [] ) {
 	$defaults = [
 		'borderStyle' => 'none',
 		'borderPadding' => 10,
-		'borderColor' => 'black'
+		'borderColor' => 'black',
+		'borderWidth' => 1,
 	];
 	$attrs = array_merge($defaults, $block['attrs']);
 
@@ -14,6 +15,7 @@ function kn_add_borders( $block_content = '', $block = [] ) {
 			border-style: {$attrs['borderStyle']};
 			padding: {$attrs['borderPadding']}px;
 			border-color: {$attrs['borderColor']};
+			border-width: {$attrs['borderWidth']}px;
 		";
 		return "<div style='$style'>$block_content</div>";
 	}
