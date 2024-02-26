@@ -11,6 +11,10 @@ function addBorderAttributes(settings, name) {
 	}
 
 	// (modify any additional settings)
+	settings.attributes.borderPadding = {
+		type: 'number',
+		default: 10,
+	}
 
 	return settings;
 }

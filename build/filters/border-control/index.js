@@ -42,7 +42,8 @@ function blockWrapper(WrappedBlock) {
         borderStyle: attributes.borderStyle || 'none',
         borderWidth: '2px',
         borderColor: 'black',
-        padding: '10px'
+        //padding: attributes.borderPadding + 'px',
+        padding: `${attributes.borderPadding}px`
       };
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Border Controls",
@@ -66,7 +67,13 @@ function blockWrapper(WrappedBlock) {
           label: 'Dotted',
           value: 'dotted'
         }]
-      })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+        label: "Padding",
+        value: attributes.borderPadding,
+        onChange: value => setAttributes({
+          borderPadding: parseInt(value)
+        })
+      }), " px"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "wp-block",
         style: divStyles
       }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(WrappedBlock, {
@@ -107,7 +114,10 @@ function addBorderAttributes(settings, name) {
   };
 
   // (modify any additional settings)
-
+  settings.attributes.borderPadding = {
+    type: 'number',
+    default: 10
+  };
   return settings;
 }
 (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.addFilter)('blocks.registerBlockType', 'kn/border-control/add-border-attributes', addBorderAttributes);

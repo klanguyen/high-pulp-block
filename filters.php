@@ -6,7 +6,11 @@ function kn_add_borders( $block_content = '', $block = [] ) {
 
 	// only do this for blocks that have borders
 	if($attrs['borderStyle'] !== 'none'){
-		return '<div style="border-style: '.$attrs['borderStyle'].'">'.$block_content.'</div>';
+		$style = "
+			border-style: {$attrs['borderStyle']};
+			padding: {$attrs['borderPadding']}px;
+		";
+		return "<div style='$style'>$block_content</div>";
 	}
 
 	// else, return unmodified block content

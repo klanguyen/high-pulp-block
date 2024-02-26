@@ -1,7 +1,7 @@
 import {createHigherOrderComponent} from '@wordpress/compose';
 import {Fragment} from '@wordpress/element';
 import {InspectorControls} from "@wordpress/block-editor";
-import {PanelBody, PanelRow, SelectControl} from "@wordpress/components";
+import {PanelBody, PanelRow, SelectControl, TextControl} from "@wordpress/components";
 import {addFilter} from '@wordpress/hooks';
 import React from "react";
 
@@ -16,7 +16,8 @@ function blockWrapper(WrappedBlock) {
 				borderStyle: attributes.borderStyle || 'none',
 				borderWidth: '2px',
 				borderColor: 'black',
-				padding: '10px',
+				//padding: attributes.borderPadding + 'px',
+				padding: `${attributes.borderPadding}px`,
 			}
 
 			return (
@@ -36,6 +37,13 @@ function blockWrapper(WrappedBlock) {
 										{label: 'Dotted', value: 'dotted'},
 									]}
 								/>
+							</PanelRow>
+							<PanelRow>
+								<TextControl
+									label="Padding"
+									value={attributes.borderPadding}
+									onChange={value => setAttributes({borderPadding: parseInt(value)})}
+								/> px
 							</PanelRow>
 						</PanelBody>
 					</InspectorControls>
