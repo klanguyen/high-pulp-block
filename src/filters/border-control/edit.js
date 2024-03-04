@@ -21,6 +21,11 @@ function blockWrapper(WrappedBlock) {
 				borderRadius: `${attributes.borderRadius}px`
 			}
 
+			// remove styles if no border style
+			if(divStyles.borderStyle === 'none'){
+				divStyles = {}
+			}
+
 			return (
 				<Fragment>
 					{/* This is panel/toolbar we are adding to each block */}
