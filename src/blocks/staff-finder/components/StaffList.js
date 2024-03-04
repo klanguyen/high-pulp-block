@@ -4,11 +4,16 @@ import StaffListItem from "./StaffListItem";
 export default class StaffList extends React.Component {
 	render() {
 		return (
-			<ul>
+			/*<ul>
 				{this.props.staff.map(person => (
 					<StaffListItem person={person} />
 				))}
-			</ul>
+			</ul>*/
+			<div>
+				{this.props.staff.map(person => (
+					<StaffListItem person={person} />
+				))}
+			</div>
 		)
 	}
 }

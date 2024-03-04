@@ -1,5 +1,6 @@
 import React from "react";
 import StaffList from "./StaffList";
+import {TextControl} from "@wordpress/components";
 
 export default class BlockApp extends React.Component {
 	state = {
@@ -11,7 +12,7 @@ export default class BlockApp extends React.Component {
 		super(props);
 
 		// ajax call
-		fetch('/wp-json/wp/v2/staff')
+		fetch('/wp-json/wp/v2/staff?_embed')
 			.then(response => response.json())
 			.then(json => {
 				console.log(json);
@@ -34,6 +35,7 @@ export default class BlockApp extends React.Component {
 		});
 	}
 
+	// render() is like <template>
 	render() {
 		return (
 			<div>
@@ -43,6 +45,10 @@ export default class BlockApp extends React.Component {
 					value={this.state.filterKeyword}
 					onInput={event => this.doFilter(event.target.value)}
 				/></label>
+				{/*<TextControl label="Search"
+							 value={this.state.filterKeyword}
+							 onChange={value => this.doFilter(value)}
+				 />*/}
 				<StaffList staff={this.state.filteredStaff}/>
 			</div>
 		)

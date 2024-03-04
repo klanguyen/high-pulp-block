@@ -15,6 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _StaffList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StaffList */ "./src/blocks/staff-finder/components/StaffList.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -28,7 +31,7 @@ class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) 
     super(props);
 
     // ajax call
-    fetch('/wp-json/wp/v2/staff').then(response => response.json()).then(json => {
+    fetch('/wp-json/wp/v2/staff?_embed').then(response => response.json()).then(json => {
       console.log(json);
       this.setState({
         staff: json,
@@ -50,6 +53,8 @@ class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) 
       filteredStaff
     });
   }
+
+  // render() is like <template>
   render() {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Staff Finder"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Search ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "text",
@@ -81,9 +86,16 @@ __webpack_require__.r(__webpack_exports__);
 
 class StaffList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   render() {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, this.props.staff.map(person => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StaffListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      person: person
-    })));
+    return (
+      /*<ul>
+      	{this.props.staff.map(person => (
+      		<StaffListItem person={person} />
+      	))}
+      </ul>*/
+      (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, this.props.staff.map(person => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StaffListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        person: person
+      })))
+    );
   }
 }
 
@@ -104,12 +116,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class StaffListItem extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  stripHtml(html) {
+    let tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+  }
   render() {
     const {
       person
     } = this.props;
     // or const person = this.props.person; <- this is not really optimizing though
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, person.title.rendered);
+
+    return (
+      /*<li>
+      	{ person.title.rendered }
+      </li>*/
+      (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+        className: "flip-card",
+        href: person.link
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "flip-card-inner"
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "flip-card-front"
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        src: person._embedded['wp:featuredmedia']['0'].source_url
+      })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "flip-card-back"
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+        className: "name"
+      }, person.title.rendered), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "position"
+      }, person.acf.staff_position), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "bio"
+      }, this.stripHtml(person.content.rendered)))))
+    );
   }
 }
 
@@ -164,6 +204,16 @@ module.exports = window["React"];
 /***/ ((module) => {
 
 module.exports = window["ReactDOM"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
 
 /***/ })
 
