@@ -52,9 +52,9 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Staff Finder – hello from the editor!', 'staff-finder'));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Staff Finder will display here"));
 }
 
 /***/ }),
@@ -146,9 +146,9 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function save() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
-  }, 'Staff Finder – hello from the saved content!');
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Loading staff finder..."));
 }
 
 /***/ }),
@@ -223,7 +223,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/staff-finder","version":"0.1.0","title":"Staff Finder","category":"design","icon":"id","description":"Search tool for finding staff.","example":{},"supports":{"html":false},"textdomain":"staff-finder","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/staff-finder","version":"0.1.0","title":"Staff Finder","category":"design","icon":"id","description":"Search tool for finding staff.","example":{},"supports":{"html":false},"textdomain":"staff-finder","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["staff finder","kn","kn plugins","high pulp"]}');
 
 /***/ })
 
