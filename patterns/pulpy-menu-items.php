@@ -17,12 +17,12 @@
 		<!-- /wp:column -->
 
 		<!-- wp:column {"width":"40%","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0"}}} -->
-		<div class="wp-block-column" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;flex-basis:40%"><!-- wp:heading {"style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700"}},"fontSize":"large"} -->
-			<h2 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:700;text-transform:uppercase">Homewrecker</h2>
+		<div class="wp-block-column" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;flex-basis:40%"><!-- wp:heading {"style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700","fontSize":"50px"}}} -->
+			<h2 class="wp-block-heading" style="font-size:50px;font-style:normal;font-weight:700;text-transform:uppercase">Homewrecker</h2>
 			<!-- /wp:heading -->
 
-			<!-- wp:heading {"level":6,"style":{"typography":{"textTransform":"uppercase"},"elements":{"link":{"color":{"text":"var:preset|color|vivid-red"}}}},"textColor":"vivid-red"} -->
-			<h6 class="wp-block-heading has-vivid-red-color has-text-color has-link-color" style="text-transform:uppercase">Mexican burrito with guac</h6>
+			<!-- wp:heading {"level":6,"style":{"typography":{"textTransform":"uppercase","fontSize":"20px"},"elements":{"link":{"color":{"text":"var:preset|color|vivid-red"}}}},"textColor":"vivid-red"} -->
+			<h6 class="wp-block-heading has-vivid-red-color has-text-color has-link-color" style="font-size:20px;text-transform:uppercase">Mexican burrito with guac</h6>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}},"typography":{"fontSize":"16px"}},"textColor":"black"} -->
@@ -38,8 +38,8 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:buttons -->
-			<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"vivid-red","style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"400","fontSize":"16px"},"spacing":{"padding":{"left":"var:preset|spacing|40","right":"var:preset|spacing|40","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
-				<div class="wp-block-button has-custom-font-size" style="font-size:16px;font-style:normal;font-weight:400;text-transform:uppercase"><a class="wp-block-button__link has-vivid-red-background-color has-background wp-element-button" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)"><strong>Order now</strong></a></div>
+			<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"vivid-red","style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"100","fontSize":"22px"},"spacing":{"padding":{"left":"var:preset|spacing|40","right":"var:preset|spacing|40","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
+				<div class="wp-block-button has-custom-font-size" style="font-size:22px;font-style:normal;font-weight:100;text-transform:uppercase"><a class="wp-block-button__link has-vivid-red-background-color has-background wp-element-button" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)"><strong>Order now</strong></a></div>
 				<!-- /wp:button --></div>
 			<!-- /wp:buttons --></div>
 		<!-- /wp:column --></div>
