@@ -14,6 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_StarRating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/StarRating */ "./src/components/StarRating.js");
+
 
 
 class AddReviewForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
@@ -36,7 +38,18 @@ class AddReviewForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
 
     // we can't assume any props are provided
     // ?. only calls the method if it exists
-    this.props.addReview?.(newReview);
+    this.props?.addReview?.(newReview);
+
+    // the above means
+    /*if(this.props.addReview) {
+    	this.props.addReview(newReview);
+    }*/
+
+    this.setState({
+      title: '',
+      review: '',
+      rating: 0
+    });
   }
   render() {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
@@ -48,11 +61,10 @@ class AddReviewForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
       onInput: e => this.setState({
         title: e.target.value
       })
-    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Overall Rating:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-      type: "number",
-      value: this.state.rating,
-      onInput: e => this.setState({
-        rating: e.target.value
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Overall Rating:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_StarRating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      rating: this.state.rating,
+      setRating: rating => this.setState({
+        rating
       })
     }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Review:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
       value: this.state.review,
@@ -81,6 +93,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _AddReviewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddReviewForm */ "./src/blocks/submit-review/components/AddReviewForm.js");
+/* harmony import */ var _ReviewList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReviewList */ "./src/blocks/submit-review/components/ReviewList.js");
+
 
 
 
@@ -89,10 +103,177 @@ class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) 
     reviews: [],
     loggedIn: null
   };
+  addReview(newReview) {
+    const review = new wp.api.models.Review(newReview);
+    review.save().done(data => {
+      console.log('Successfully added review!', data);
+      this.getReviews();
+    }).fail(jqXHR => {
+      console.error('Failed adding review!', jqXHR);
+    });
+  }
+  getReviews() {
+    // by default, this gives us 10
+    const reviewCollection = new wp.api.collections.Review();
+    reviewCollection.fetch().done(data => {
+      console.log('Successfully fetched!', data, reviewCollection);
+      // store the models in our state
+      this.setState({
+        reviews: reviewCollection.models
+      });
+    }).fail(jqXHR => {
+      console.error('Failed fetching!', jqXHR);
+    });
+  }
+  getLoggedInUser() {
+    const user = new wp.api.models.UsersMe(); // get logged in user
+    user.fetch().done(user => {
+      // logged in
+      this.setState({
+        loggedIn: true
+      });
+    }).fail(jqXHR => {
+      // not logged in
+      this.setState({
+        loggedIn: false
+      });
+    });
+  }
+  componentDidMount() {
+    this.getReviews();
+    this.getLoggedInUser();
+  }
   render() {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Latest Reviews"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "TODO"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Submit a Review"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddReviewForm__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Latest Reviews"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ReviewList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      reviews: this.state.reviews
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Submit a Review"), this.state.loggedIn === true && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddReviewForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      addReview: reviewObj => this.addReview(reviewObj)
+    }), this.state.loggedIn === false && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "error-msg"
+    }, "You must be logged in to submit a review"));
   }
 }
+
+/***/ }),
+
+/***/ "./src/blocks/submit-review/components/ReviewCard.js":
+/*!***********************************************************!*\
+  !*** ./src/blocks/submit-review/components/ReviewCard.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReviewCard)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_StarRating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/StarRating */ "./src/components/StarRating.js");
+
+
+
+class ReviewCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  render() {
+    let {
+      title,
+      review,
+      rating
+    } = this.props;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "review-card"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "review-title",
+      dangerouslySetInnerHTML: {
+        __html: title
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_StarRating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      rating: rating,
+      readonly: true
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "review-content",
+      dangerouslySetInnerHTML: {
+        __html: review
+      }
+    }));
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/submit-review/components/ReviewList.js":
+/*!***********************************************************!*\
+  !*** ./src/blocks/submit-review/components/ReviewList.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReviewList)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ReviewCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReviewCard */ "./src/blocks/submit-review/components/ReviewCard.js");
+
+
+
+class ReviewList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  render() {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "review-list"
+    }, this.props.reviews.map(review => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ReviewCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      title: review.attributes.title.rendered,
+      review: review.attributes.content.rendered,
+      rating: review.attributes.acf.review_rating,
+      key: review.attributes.id
+    })));
+  }
+}
+
+/***/ }),
+
+/***/ "./src/components/StarRating.js":
+/*!**************************************!*\
+  !*** ./src/components/StarRating.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StarRating)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _StarRating_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarRating.scss */ "./src/components/StarRating.scss");
+
+
+
+function StarRating({
+  rating,
+  setRating,
+  readonly
+}) {
+  const [hover, setHover] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(rating || 0);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: readonly ? 'readonly stars' : 'stars'
+  }, [1, 2, 3, 4, 5].map(star => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: star <= hover ? 'star on' : 'star off',
+    onClick: () => setRating(star),
+    onMouseEnter: () => setHover(star),
+    onMouseLeave: () => setHover(rating)
+  }, "\u2605")));
+}
+
+/***/ }),
+
+/***/ "./src/components/StarRating.scss":
+/*!****************************************!*\
+  !*** ./src/components/StarRating.scss ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 

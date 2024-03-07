@@ -1,9 +1,10 @@
-// TODO: Import StarRating CSS and make readonly option with
-// .stars.readonly {
+// Import StarRating CSS and make readonly option with
+@import "../../components/StarRating";
+//.stars.readonly {
 //	pointer-events: none;
 //	.star {
-//		cursor: default;
-//	}
+//	cursor: default;
+//}
 
 .wp-block-kn-submit-review {
 	.new-review-form {
