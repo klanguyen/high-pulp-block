@@ -31,6 +31,7 @@ function high_pulp_blocks_high_pulp_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/project-list' );
 	register_block_type( __DIR__ . '/build/filters/border-control' );
 	register_block_type( __DIR__ . '/build/blocks/staff-finder' );
+	register_block_type( __DIR__ . '/build/blocks/submit-review' );
 }
 add_action( 'init', 'high_pulp_blocks_high_pulp_blocks_block_init' );
 
