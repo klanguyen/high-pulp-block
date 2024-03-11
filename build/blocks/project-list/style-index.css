@@ -1,1 +1,248 @@
-.wp-block-kn-project-list{color:#10182f}.wp-block-kn-project-list .project-card{align-items:flex-end;background:#fff;border-radius:15px;box-shadow:0 7px 10px rgba(0,0,0,.5);display:inline-flex;height:100%;margin:0 2rem 1rem 0;padding:1.5rem;position:relative;transition:.4s ease-out;width:300px}.wp-block-kn-project-list .project-card:hover{transform:translateY(0)}.wp-block-kn-project-list .project-card:hover:before{opacity:1}.wp-block-kn-project-list .project-card:hover .project-info{opacity:1;transform:translateY(0)}.wp-block-kn-project-list .project-card:before{background:rgba(0,0,0,.75);border-radius:15px;content:"";display:block;height:100%;left:0;opacity:0;position:absolute;top:0;transition:.5s;width:100%;z-index:2}.wp-block-kn-project-list .project-card img{border-radius:15px;height:100%;left:0;-o-object-fit:cover;object-fit:cover;position:absolute;top:0;width:100%}.wp-block-kn-project-list .project-card .project-info{color:#ccc;opacity:0;position:relative;transform:translateY(30px);transition:.5s;z-index:3}.wp-block-kn-project-list .project-card .project-info .project-title{color:#ccc;font-size:1.5rem;margin:0;padding-bottom:0;padding-top:5rem}.wp-block-kn-project-list .project-card .project-info .brief-desc{padding-top:0}.wp-block-kn-project-list .project-card .project-info .technologies-list{display:flex;flex-flow:row wrap;font-size:14px;justify-content:flex-start;margin:20px 0 0;padding:0}.wp-block-kn-project-list .project-card .project-info .tech-item{background:rgba(0,0,0,.4);border-radius:3px;color:#ccc;cursor:default;display:inline-block;margin:0 5px 5px 0;padding:2.5px 10px;transition:background-color .3s;-webkit-user-select:none;-moz-user-select:none;user-select:none}.wp-block-kn-project-list .modal-container{align-items:center;background:rgba(0,0,0,.6);display:none;height:100%;justify-content:center;left:0;position:fixed;top:0;width:100%;z-index:10}.wp-block-kn-project-list .modal-container:target{display:flex}.wp-block-kn-project-list .modal-container .modal{background:linear-gradient(to right bottom,#4048bf,#409fbf);border-radius:.8rem;box-shadow:.4rem .4rem 2.4rem .2rem rgba(64,72,191,.3);color:#fff;overflow:hidden;padding:4rem 2rem;position:relative;width:60rem}.wp-block-kn-project-list .modal-container .modal .modal__details{border-bottom:1px solid hsla(0,0%,100%,.4);margin-bottom:4rem;padding-bottom:4rem;text-align:center}.wp-block-kn-project-list .modal-container .modal .modal__details .modal__title{font-size:3.2rem}.wp-block-kn-project-list .modal-container .modal .modal__details .modal__description{font-size:1.6rem;font-style:italic;margin-top:2rem}.wp-block-kn-project-list .modal-container .modal .modal__text{font-size:1.6rem;line-height:2;margin-bottom:4rem;padding:0 4rem}.wp-block-kn-project-list .modal-container .modal .modal__text:before{border:1px solid hsla(0,0%,100%,.2);border-radius:100rem;content:"";height:18rem;left:100%;pointer-events:none;position:absolute;top:0;transform:translate(-50%,-50%);width:18rem}.wp-block-kn-project-list .modal-container .modal .modal__btn{background:transparent;border:1px solid hsla(0,0%,100%,.4);border-radius:100rem;color:inherit;cursor:pointer;font-family:inherit;font-size:1.4rem;letter-spacing:.2rem;padding:1rem 1.6rem;transition:.2s}.wp-block-kn-project-list .modal-container .modal .modal__btn:focus,.wp-block-kn-project-list .modal-container .modal .modal__btn:hover{border-color:hsla(0,0%,100%,.6);transform:translateY(-.2rem)}.wp-block-kn-project-list .modal-container .modal .link-2{align-items:center;border:1px solid hsla(0,0%,100%,.4);border-radius:100rem;color:inherit;display:flex;font-size:2.2rem;height:4rem;justify-content:center;position:absolute;right:2rem;top:2rem;transition:.2s;width:4rem}.wp-block-kn-project-list .modal-container .modal .link-2:before{content:"×";transform:translateY(-.1rem)}.wp-block-kn-project-list .modal-container .modal .link-2:focus,.wp-block-kn-project-list .modal-container .modal .link-2:hover{border-color:hsla(0,0%,100%,.6);transform:translateY(-.2rem)}
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/project-list/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-kn-project-list {
+  color: #10182f;
+  /*.project-card {
+  	margin: 10px;
+  	background-color: #fff;
+  	border-radius: 10px;
+  	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  	overflow: hidden;
+  	width: 300px;
+
+  	.project-card-header img {
+  		width: 100%;
+  		height: 200px;
+  		object-fit: cover;
+  	}
+
+  	.project-card-body {
+  		display: flex;
+  		flex-direction: column;
+  		justify-content: center;
+  		align-items: flex-start;
+  		padding: 20px;
+  		min-height: 250px;
+
+  		p {
+  			font-size: 16px;
+  			margin: 0 0 10px;
+  		}
+
+  		.tech-tag {
+  			background: #cccccc;
+  			border-radius: 50px;
+  			font-size: 12px;
+  			margin: 0;
+  			color: #fff;
+  			padding: 2px 10px;
+  			cursor: pointer;
+  		}
+  		.tag-teal {
+  			background-color: #47bcd4;
+  		}
+  		.tag-purple {
+  			background-color: #5e76bf;
+  		}
+  		.tag-pink {
+  			background-color: #cd5b9f;
+  		}
+  	}
+  }*/
+}
+.wp-block-kn-project-list .project-card {
+  width: 300px;
+  height: 100%;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 0 2rem 1rem 0;
+  background: white;
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+.wp-block-kn-project-list .project-card:hover {
+  transform: translateY(0px);
+}
+.wp-block-kn-project-list .project-card:hover:before {
+  opacity: 1;
+}
+.wp-block-kn-project-list .project-card:hover .project-info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.wp-block-kn-project-list .project-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+.wp-block-kn-project-list .project-card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+.wp-block-kn-project-list .project-card .project-info {
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+  color: #ccc;
+}
+.wp-block-kn-project-list .project-card .project-info .project-title {
+  margin: 0;
+  padding-top: 5rem;
+  padding-bottom: 0;
+  font-size: 1.5rem;
+  color: #ccc;
+}
+.wp-block-kn-project-list .project-card .project-info .brief-desc {
+  padding-top: 0;
+}
+.wp-block-kn-project-list .project-card .project-info .technologies-list {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 14px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  justify-content: flex-start;
+}
+.wp-block-kn-project-list .project-card .project-info .tech-item {
+  color: #ccc;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  padding: 2.5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: background-color 0.3s;
+  /*&:hover {
+  	background-color: gold;
+  	color: #000;
+  }*/
+}
+.wp-block-kn-project-list .modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.6);
+}
+.wp-block-kn-project-list .modal-container:target {
+  display: flex;
+}
+.wp-block-kn-project-list .modal-container .modal {
+  width: 60rem;
+  padding: 4rem 2rem;
+  border-radius: 0.8rem;
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(to right bottom, hsl(236, 50%, 50%), hsl(195, 50%, 50%));
+  box-shadow: 0.4rem 0.4rem 2.4rem 0.2rem hsla(236, 50%, 50%, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+.wp-block-kn-project-list .modal-container .modal .modal__details {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
+}
+.wp-block-kn-project-list .modal-container .modal .modal__details .modal__title {
+  font-size: 3.2rem;
+}
+.wp-block-kn-project-list .modal-container .modal .modal__details .modal__description {
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+.wp-block-kn-project-list .modal-container .modal .modal__text {
+  padding: 0 4rem;
+  margin-bottom: 4rem;
+  font-size: 1.6rem;
+  line-height: 2;
+}
+.wp-block-kn-project-list .modal-container .modal .modal__text::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 18rem;
+  height: 18rem;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 100rem;
+  pointer-events: none;
+}
+.wp-block-kn-project-list .modal-container .modal .modal__btn {
+  padding: 1rem 1.6rem;
+  border: 1px solid hsla(0, 0%, 100%, 0.4);
+  border-radius: 100rem;
+  color: inherit;
+  background: transparent;
+  font-size: 1.4rem;
+  font-family: inherit;
+  letter-spacing: 0.2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.wp-block-kn-project-list .modal-container .modal .modal__btn:hover, .wp-block-kn-project-list .modal-container .modal .modal__btn:focus {
+  border-color: hsla(0, 0%, 100%, 0.6);
+  transform: translateY(-0.2rem);
+}
+.wp-block-kn-project-list .modal-container .modal .link-2 {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid hsla(0, 0%, 100%, 0.4);
+  border-radius: 100rem;
+  color: inherit;
+  font-size: 2.2rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+.wp-block-kn-project-list .modal-container .modal .link-2::before {
+  content: "×";
+  transform: translateY(-0.1rem);
+}
+.wp-block-kn-project-list .modal-container .modal .link-2:hover, .wp-block-kn-project-list .modal-container .modal .link-2:focus {
+  border-color: hsla(0, 0%, 100%, 0.6);
+  transform: translateY(-0.2rem);
+}
+
+/*# sourceMappingURL=style-index.css.map*/
