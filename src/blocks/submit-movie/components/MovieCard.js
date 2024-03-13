@@ -2,7 +2,7 @@ import React from "react";
 
 export default class MovieCard extends React.Component {
 	render(){
-		let { title, description, posterUrl, genres, voteCount } = this.props;
+		let { title, description, posterUrl, genres, voteCount, submittedBy } = this.props;
 
 		return (
 			<div className="movie-card">
@@ -10,6 +10,7 @@ export default class MovieCard extends React.Component {
 					<div className="movie-header">
 						<img className="movie-poster" src={posterUrl} />
 						<h4 dangerouslySetInnerHTML={{__html: title}}></h4>
+						<span>Submitted by: {submittedBy}</span>
 						<ul className="movie-genres">
 							{genres.map(genre => (
 								<li className="genre-item">{genre}</li>

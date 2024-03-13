@@ -8,6 +8,7 @@ export default class AddMovieForm extends React.Component {
 		posterId: '',
 		genres: [],
 		voteCount: 0,
+		submittedBy: ''
 	};
 
 	openMediaLibrary(e) {
@@ -54,6 +55,7 @@ export default class AddMovieForm extends React.Component {
 			acf: {
 				movie_genres: this.state.genres,
 				movie_vote_count: parseInt(this.state.rating) || 0,
+				movie_submitted_by: this.state.submittedBy
 			},
 
 			// maybe you should validate better before doing this?
@@ -68,7 +70,8 @@ export default class AddMovieForm extends React.Component {
 			title: '',
 			description: '',
 			posterId: '',
-			genres: ''
+			genres: '',
+			submittedBy: ''
 		})
 
 		jQuery(document.querySelectorAll('input[name="genres"]').forEach( el => el.checked = false ));
@@ -163,6 +166,16 @@ export default class AddMovieForm extends React.Component {
 						onChange={e => this.handleCheckboxChange(e)}
 					/>
 					<label htmlFor="comedy">Comedy</label>
+				</div>
+
+				<div>
+					<label>
+						Submitted by:
+						<input type="text"
+							   value={this.state.submittedBy}
+							   onInput={e => this.setState({submittedBy: e.target.value})}
+						/>
+					</label>
 				</div>
 
 				<button type="submit">Add Movie</button>

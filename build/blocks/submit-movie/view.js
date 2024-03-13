@@ -23,7 +23,8 @@ class AddMovieForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compone
     description: '',
     posterId: '',
     genres: [],
-    voteCount: 0
+    voteCount: 0,
+    submittedBy: ''
   };
   openMediaLibrary(e) {
     e.preventDefault();
@@ -63,7 +64,8 @@ class AddMovieForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compone
       featured_media: this.state.posterId,
       acf: {
         movie_genres: this.state.genres,
-        movie_vote_count: parseInt(this.state.rating) || 0
+        movie_vote_count: parseInt(this.state.rating) || 0,
+        movie_submitted_by: this.state.submittedBy
       },
       // maybe you should validate better before doing this?
       status: 'publish'
@@ -76,7 +78,8 @@ class AddMovieForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compone
       title: '',
       description: '',
       posterId: '',
-      genres: ''
+      genres: '',
+      submittedBy: ''
     });
     jQuery(document.querySelectorAll('input[name="genres"]').forEach(el => el.checked = false));
   }
@@ -146,7 +149,13 @@ class AddMovieForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compone
       onChange: e => this.handleCheckboxChange(e)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       htmlFor: "comedy"
-    }, "Comedy")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    }, "Comedy")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Submitted by:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "text",
+      value: this.state.submittedBy,
+      onInput: e => this.setState({
+        submittedBy: e.target.value
+      })
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
       type: "submit"
     }, "Add Movie"));
   }
@@ -256,7 +265,8 @@ class MovieCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       description,
       posterUrl,
       genres,
-      voteCount
+      voteCount,
+      submittedBy
     } = this.props;
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "movie-card"
@@ -271,7 +281,7 @@ class MovieCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       dangerouslySetInnerHTML: {
         __html: title
       }
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Submitted by: ", submittedBy), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
       className: "movie-genres"
     }, genres.map(genre => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       className: "genre-item"
@@ -312,6 +322,7 @@ class MovieList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       posterUrl: movie.attributes._embedded['wp:featuredmedia']['0'].source_url,
       genres: movie.attributes.acf.movie_genres,
       voteCount: movie.attributes.acf.movie_vote_count,
+      submittedBy: movie.attributes.acf.movie_submitted_by,
       key: movie.attributes.id
     })));
   }

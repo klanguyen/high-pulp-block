@@ -11,6 +11,7 @@ export default class MovieList extends React.Component {
 								posterUrl={movie.attributes._embedded['wp:featuredmedia']['0'].source_url}
 								genres={movie.attributes.acf.movie_genres}
 								voteCount={movie.attributes.acf.movie_vote_count}
+							    submittedBy={movie.attributes.acf.movie_submitted_by}
 								key={movie.attributes.id}
 					/>
 				))}
