@@ -1,6 +1,101 @@
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/submit-movie/style.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-kn-submit-movie {
+  /*.movie-card {
+  	p {
+  		margin-bottom: 20px;
+  	}
+  	height: 100%;
+  	width: 40%;
+  	margin: 20px auto;
+  	padding: 20px;
+  	overflow: hidden;
+  	border-radius: 10px;
+  	transition: all 0.4s;
+  	border: 2px solid rgba(131, 131, 131, 0);
+  	box-shadow: 0px 0px 40px -25px rgba(12, 108, 160, 0.5);
+
+  	&:hover, &:focus{
+  		border: 2px solid #0c6ca0;
+  		transform: scale(1.02);
+  		box-shadow: 0px 0px 80px -25px rgba(12, 108, 160, 0.5);
+  		transition: all 0.4s;
+  	}
+
+  	&:focus {
+
+  	}
+
+  	.movie-info{
+  		background-blend-mode: multiply;
+  		z-index: 2;
+  		border-radius: 10px;
+
+  		.movie-header{
+  			height: 40%;
+
+  			h4 {
+  				color: black;
+  				font-weight: bold;
+  				padding: 15px 0;
+  				margin: 0;
+  			}
+
+  			.movie-genres {
+  				display: flex;
+  				flex-direction: row;
+  				flex-wrap: wrap;
+  				margin: 15px 0 15px 0;
+
+  				.genre-item {
+  					display: inline-block;
+  					margin-right: 7px;
+  					color: #e9e9e9;
+  					background-color: #5b5b5b;
+  					font-size: 12px;
+  					padding: 5px 7px;
+  				}
+  			}
+
+  			.movie-poster {
+  				position: relative;
+  				width: 100%;
+  				height: auto;
+  			}
+  		}
+
+  		.movie_description {
+  			margin: 0;
+  			height: 50%;
+  			padding-bottom: 20px;
+
+  			.text {
+  				color: #545454;
+  				font-size: 1em;
+  			}
+  		}
+
+  		.movie_actions {
+  			height: 10%;
+  			padding-bottom: 20px;
+
+  			.action-item {
+  			}
+  		}
+  	}
+  }*/
+}
+.wp-block-kn-submit-movie .vote-section {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-kn-submit-movie .vote-section .vote-button {
+  display: inline-flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-content: center;
+}
 .wp-block-kn-submit-movie .new-movie-form {
   background-color: aliceblue;
   padding: 20px;
@@ -19,73 +114,113 @@
 .wp-block-kn-submit-movie .movie-list {
   display: flex;
   flex-direction: row;
+  flex-grow: 1;
   flex-wrap: wrap;
 }
-.wp-block-kn-submit-movie .movie-card {
-  height: 100%;
-  width: 40%;
-  margin: 20px auto;
-  padding: 20px;
+.wp-block-kn-submit-movie .movie-list > * {
+  margin: 0.5rem 0.5rem;
+}
+.wp-block-kn-submit-movie .movie-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  height: 1px;
   overflow: hidden;
-  border-radius: 10px;
-  transition: all 0.4s;
-  border: 2px solid rgba(131, 131, 131, 0);
-  box-shadow: 0px 0px 40px -25px rgba(12, 108, 160, 0.5);
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
-.wp-block-kn-submit-movie .movie-card p {
-  margin-bottom: 20px;
+.wp-block-kn-submit-movie .movie-input:checked + .movie-info {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.wp-block-kn-submit-movie .movie-card:hover, .wp-block-kn-submit-movie .movie-card:focus {
-  border: 2px solid #0c6ca0;
-  transform: scale(1.02);
-  box-shadow: 0px 0px 80px -25px rgba(12, 108, 160, 0.5);
-  transition: all 0.4s;
+.wp-block-kn-submit-movie .movie-input:checked + .movie-info:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #2260ff;
+  border-color: #2260ff;
 }
-.wp-block-kn-submit-movie .movie-card .movie-info {
-  background-blend-mode: multiply;
-  z-index: 2;
-  border-radius: 10px;
+.wp-block-kn-submit-movie .movie-input:checked + .movie-info .movie-title {
+  color: #2260ff;
 }
-.wp-block-kn-submit-movie .movie-card .movie-info .movie-header {
-  height: 40%;
+.wp-block-kn-submit-movie .movie-input:focus + .movie-info {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
 }
-.wp-block-kn-submit-movie .movie-card .movie-info .movie-header h4 {
-  color: black;
-  font-weight: bold;
-  padding: 15px 0;
-  margin: 0;
+.wp-block-kn-submit-movie .movie-input:focus + .movie-info:before {
+  transform: scale(1);
+  opacity: 1;
 }
-.wp-block-kn-submit-movie .movie-card .movie-info .movie-header .movie-genres {
+.wp-block-kn-submit-movie .movie-info {
+  width: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+.wp-block-kn-submit-movie .movie-info:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27192%27 height=%27192%27 fill=%27%23FFFFFF%27 viewBox=%270 0 256 256%27%3E%3Crect width=%27256%27 height=%27256%27 fill=%27none%27%3E%3C/rect%3E%3Cpolyline points=%27216 72.005 104 184 48 128.005%27 fill=%27none%27 stroke=%27%23FFFFFF%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%2732%27%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.wp-block-kn-submit-movie .movie-info:hover {
+  border-color: #2260ff;
+}
+.wp-block-kn-submit-movie .movie-info:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+.wp-block-kn-submit-movie .movie-info .movie-data {
+  margin-left: 15px;
+  width: auto;
+}
+.wp-block-kn-submit-movie .movie-info .movie-data .movie-description {
+  width: 15em;
+}
+.wp-block-kn-submit-movie .movie-image {
+  height: 20rem;
+}
+.wp-block-kn-submit-movie .movie-title {
+  color: #707070;
+  transition: 0.375s ease;
+}
+.wp-block-kn-submit-movie .movie-genres {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 15px 0 15px 0;
 }
-.wp-block-kn-submit-movie .movie-card .movie-info .movie-header .movie-genres .genre-item {
+.wp-block-kn-submit-movie .movie-genres .genre-item {
+  color: #e8e8e8;
   display: inline-block;
-  margin-right: 7px;
-  color: #e9e9e9;
-  background-color: #5b5b5b;
-  font-size: 12px;
-  padding: 5px 7px;
-}
-.wp-block-kn-submit-movie .movie-card .movie-info .movie-header .movie-poster {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-.wp-block-kn-submit-movie .movie-card .movie-info .movie_description {
-  margin: 0;
-  height: 50%;
-  padding-bottom: 20px;
-}
-.wp-block-kn-submit-movie .movie-card .movie-info .movie_description .text {
-  color: #545454;
-  font-size: 1em;
-}
-.wp-block-kn-submit-movie .movie-card .movie-info .movie_actions {
-  height: 10%;
-  padding-bottom: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  padding: 2.5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

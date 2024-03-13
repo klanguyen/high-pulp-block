@@ -53,8 +53,11 @@ export default class BlockApp extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3>Latest Movies</h3>
-				<MovieList movies={this.state.movies} />
+				<div className="vote-section">
+					<h3>Latest Movies</h3>
+					<MovieList movies={this.state.movies} />
+					<button className="vote-button" onClick={e => this.updateMovie(e)}>Vote</button>
+				</div>
 				<hr />
 				<h3>Submit a Movie</h3>
 				{this.state.loggedIn === true && <AddMovieForm addMovie={movieObj => this.addMovie(movieObj)} />}

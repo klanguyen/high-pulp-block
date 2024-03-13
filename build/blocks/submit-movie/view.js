@@ -232,9 +232,14 @@ class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) 
     this.getLoggedInUser();
   }
   render() {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Latest Movies"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MovieList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "vote-section"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Latest Movies"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MovieList__WEBPACK_IMPORTED_MODULE_2__["default"], {
       movies: this.state.movies
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Submit a Movie"), this.state.loggedIn === true && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddMovieForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      className: "vote-button",
+      onClick: e => this.updateMovie(e)
+    }, "Vote")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Submit a Movie"), this.state.loggedIn === true && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddMovieForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
       addMovie: movieObj => this.addMovie(movieObj)
     }), this.state.loggedIn === false && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "error-msg"
@@ -268,29 +273,55 @@ class MovieCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       voteCount,
       submittedBy
     } = this.props;
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "movie-card"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "movie-info"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "movie-header"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      className: "movie-poster",
-      src: posterUrl
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
-      dangerouslySetInnerHTML: {
-        __html: title
-      }
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Submitted by: ", submittedBy), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-      className: "movie-genres"
-    }, genres.map(genre => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-      className: "genre-item"
-    }, genre)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "movie-description",
-      dangerouslySetInnerHTML: {
-        __html: description
-      }
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, voteCount, " votes"))));
+    return (
+      /*<div className="movie-card">
+      	<div className="movie-info">
+      		<div className="movie-header">
+      			<img className="movie-poster" src={posterUrl} />
+      			<h4 dangerouslySetInnerHTML={{__html: title}}></h4>
+      			<span>Submitted by: {submittedBy}</span>
+      			<ul className="movie-genres">
+      				{genres.map(genre => (
+      					<li className="genre-item">{genre}</li>
+      				))}
+      			</ul>
+      		</div>
+      		<div className="movie-description" dangerouslySetInnerHTML={{__html: description}}>
+      		</div>
+      		<div><p>{voteCount} votes</p></div>
+      	</div>
+      </div>*/
+      (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "movie-card"
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+        className: "movie-wrapper"
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "radio",
+        name: "movie-of-the-month",
+        className: "movie-input"
+      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: "movie-info"
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        src: posterUrl,
+        className: "movie-image"
+      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: "movie-data"
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+        className: "movie-title",
+        dangerouslySetInnerHTML: {
+          __html: title
+        }
+      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Submitted by: ", submittedBy), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+        className: "movie-genres"
+      }, genres.map(genre => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+        className: "genre-item"
+      }, genre))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+        className: "movie-description",
+        dangerouslySetInnerHTML: {
+          __html: description
+        }
+      })))))
+    );
   }
 }
 
