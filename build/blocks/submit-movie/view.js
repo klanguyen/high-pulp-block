@@ -16,21 +16,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var image;
 class AddMovieForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   state = {
     title: '',
     description: '',
-    poster: '',
+    posterId: '',
     genres: [],
     voteCount: 0
   };
+  openMediaLibrary(e) {
+    e.preventDefault();
+    image = wp.media({
+      title: 'Upload Image',
+      type: 'image',
+      multiple: false,
+      button: {
+        text: 'Done'
+      }
+    }).open();
+    image.on('select', e => {
+      var uploadedImgId = image.state().get('selection').first().toJSON().id;
+      //jQuery('input#imageId').val(uploadedImgId);
+      this.setState({
+        posterId: uploadedImgId
+      });
+    });
+  }
+  handleCheckboxChange(e) {
+    let newArray = [...this.state.genres, e.target.value];
+    if (this.state.genres.includes(e.target.value)) {
+      newArray = newArray.filter(genre => genre !== e.target.value);
+    }
+    this.setState({
+      genres: newArray
+    });
+  }
   addMovie(e) {
     e.preventDefault();
+
+    //this.state.posterId = parseInt(jQuery('input#imageId').val());
+    console.log(this.state.posterId);
     const newMovie = {
       title: this.state.title,
       content: this.state.description,
+      featured_media: this.state.posterId,
       acf: {
-        movie_poster_image: this.state.poster,
         movie_genres: this.state.genres,
         movie_vote_count: parseInt(this.state.rating) || 0
       },
@@ -41,6 +72,13 @@ class AddMovieForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compone
     // we can't assume any props are provided
     // ?. only calls the method if it exists
     this.props.addMovie?.(newMovie);
+    this.setState({
+      title: '',
+      description: '',
+      posterId: '',
+      genres: ''
+    });
+    jQuery(document.querySelectorAll('input[name="genres"]').forEach(el => el.checked = false));
   }
   render() {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
@@ -52,51 +90,60 @@ class AddMovieForm extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compone
       onInput: e => this.setState({
         title: e.target.value
       })
-    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Description:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Poster Image"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      type: "button",
+      onClick: e => this.openMediaLibrary(e)
+    }, "Upload Image")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Description:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
       value: this.state.description,
       onInput: e => this.setState({
-        title: e.target.value
+        description: e.target.value
       })
     }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Genres:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "checkbox",
       id: "horror",
       value: "Horror",
-      name: "genres"
+      name: "genres",
+      onChange: e => this.handleCheckboxChange(e)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       htmlFor: "horror"
     }, "Horror"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "checkbox",
       id: "action",
       value: "Action",
-      name: "genres"
+      name: "genres",
+      onChange: e => this.handleCheckboxChange(e)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       htmlFor: "action"
     }, "Action"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "checkbox",
       id: "sci-fi",
       value: "Sci-Fi",
-      name: "genres"
+      name: "genres",
+      onChange: e => this.handleCheckboxChange(e)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       htmlFor: "sci-fi"
     }, "Sci-Fi"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "checkbox",
       id: "drama",
       value: "Drama",
-      name: "genres"
+      name: "genres",
+      onChange: e => this.handleCheckboxChange(e)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       htmlFor: "drama"
     }, "Drama"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "checkbox",
       id: "mystery",
       value: "Mystery",
-      name: "genres"
+      name: "genres",
+      onChange: e => this.handleCheckboxChange(e)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       htmlFor: "mystery"
     }, "Mystery"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "checkbox",
       id: "comedy",
       value: "Comedy",
-      name: "genres"
+      name: "genres",
+      onChange: e => this.handleCheckboxChange(e)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       htmlFor: "comedy"
     }, "Comedy")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
@@ -121,16 +168,152 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _AddMovieForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddMovieForm */ "./src/blocks/submit-movie/components/AddMovieForm.js");
+/* harmony import */ var _MovieList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MovieList */ "./src/blocks/submit-movie/components/MovieList.js");
+
 
 
 
 class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   state = {
-    reviews: [],
+    movies: [],
     loggedIn: null
   };
+  addMovie(newMovie) {
+    const movie = new wp.api.models.Movie(newMovie);
+    movie.save().done(data => {
+      console.log('Successfully added movie!', data);
+      this.getMovies();
+    }).fail(jqXHR => {
+      console.error('Failed adding movie!', jqXHR);
+    });
+  }
+  getMovies() {
+    // by default, this gives us 10 results
+    const movieCollection = new wp.api.collections.Movie();
+    movieCollection.fetch({
+      data: {
+        _embed: true
+      }
+    }).done(data => {
+      console.log('Successfully fetched!', data, movieCollection);
+      // store the models in our state
+      this.setState({
+        movies: movieCollection.models
+      });
+    }).fail(jqXHR => {
+      console.error('Failed fetching!', jqXHR);
+    });
+  }
+  getLoggedInUser() {
+    const user = new wp.api.models.UsersMe(); // get logged in user
+    user.fetch().done(user => {
+      // logged in
+      this.setState({
+        loggedIn: true
+      });
+    }).fail(jqXHR => {
+      // not logged in
+      this.setState({
+        loggedIn: false
+      });
+    });
+  }
+  componentDidMount() {
+    this.getMovies();
+    this.getLoggedInUser();
+  }
   render() {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Latest Movies"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "TODO"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Submit a Movie"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddMovieForm__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Latest Movies"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MovieList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      movies: this.state.movies
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Submit a Movie"), this.state.loggedIn === true && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddMovieForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      addMovie: movieObj => this.addMovie(movieObj)
+    }), this.state.loggedIn === false && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "error-msg"
+    }, "You must be logged in to submit a movie"));
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/submit-movie/components/MovieCard.js":
+/*!*********************************************************!*\
+  !*** ./src/blocks/submit-movie/components/MovieCard.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MovieCard)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class MovieCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  render() {
+    let {
+      title,
+      description,
+      posterUrl,
+      genres,
+      voteCount
+    } = this.props;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "movie-card"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "movie-info"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "movie-header"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      className: "movie-poster",
+      src: posterUrl
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+      dangerouslySetInnerHTML: {
+        __html: title
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      className: "movie-genres"
+    }, genres.map(genre => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      className: "genre-item"
+    }, genre)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "movie-description",
+      dangerouslySetInnerHTML: {
+        __html: description
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, voteCount, " votes"))));
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/submit-movie/components/MovieList.js":
+/*!*********************************************************!*\
+  !*** ./src/blocks/submit-movie/components/MovieList.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MovieList)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _MovieCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MovieCard */ "./src/blocks/submit-movie/components/MovieCard.js");
+
+
+
+class MovieList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  render() {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "movie-list"
+    }, this.props.movies.map(movie => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MovieCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      title: movie.attributes.title.rendered,
+      description: movie.attributes.content.rendered,
+      posterUrl: movie.attributes._embedded['wp:featuredmedia']['0'].source_url,
+      genres: movie.attributes.acf.movie_genres,
+      voteCount: movie.attributes.acf.movie_vote_count,
+      key: movie.attributes.id
+    })));
   }
 }
 

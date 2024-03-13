@@ -36,6 +36,9 @@ function high_pulp_blocks_high_pulp_blocks_block_init() {
 
 	// load the Backbone JS Client
 	wp_enqueue_script('wp-api');
+	// load WP Media Library
+	wp_enqueue_media();
+
 }
 add_action( 'init', 'high_pulp_blocks_high_pulp_blocks_block_init' );
 
