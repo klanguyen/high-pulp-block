@@ -185,7 +185,9 @@ __webpack_require__.r(__webpack_exports__);
 class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   state = {
     movies: [],
-    loggedIn: null
+    loggedIn: null,
+    selectedMovieId: '',
+    newVoteCount: 0
   };
   addMovie(newMovie) {
     const movie = new wp.api.models.Movie(newMovie);
@@ -202,12 +204,50 @@ class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) 
     movieCollection.fetch({
       data: {
         _embed: true
-      }
+      },
+      orderby: 'title',
+      order: 'DESC'
     }).done(data => {
       console.log('Successfully fetched!', data, movieCollection);
       // store the models in our state
       this.setState({
         movies: movieCollection.models
+      });
+    }).fail(jqXHR => {
+      console.error('Failed fetching!', jqXHR);
+    });
+  }
+  handleInput(id) {
+    this.setState({
+      selectedMovieId: parseInt(id)
+    });
+  }
+  updateSelectedMovie(e) {
+    e.preventDefault();
+    console.log('Voting for movie id: ' + this.state.selectedMovieId);
+    const theMovie = new wp.api.models.Movie({
+      id: this.state.selectedMovieId
+    });
+    theMovie.fetch().done(data => {
+      console.log('Successfully fetched!', data, theMovie);
+      this.setState({
+        newVoteCount: theMovie.attributes.acf.movie_vote_count + 1
+      }, () => {
+        console.log('New vote count: ' + this.state.newVoteCount);
+
+        // update
+        theMovie.save({
+          acf: {
+            movie_vote_count: this.state.newVoteCount
+          }
+        }, {
+          patch: true
+        }).done(data => {
+          console.log('Successfully updated movie', data);
+          this.getMovies();
+        }).fail(jqXHR => {
+          console.error('Failed updating movie', jqXHR);
+        });
       });
     }).fail(jqXHR => {
       console.error('Failed fetching!', jqXHR);
@@ -235,10 +275,11 @@ class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) 
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "vote-section"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Latest Movies"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MovieList__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      movies: this.state.movies
+      movies: this.state.movies,
+      getSelectedMovieId: id => this.handleInput(id)
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
       className: "vote-button",
-      onClick: e => this.updateMovie(e)
+      onClick: e => this.updateSelectedMovie(e)
     }, "Vote")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Submit a Movie"), this.state.loggedIn === true && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddMovieForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
       addMovie: movieObj => this.addMovie(movieObj)
     }), this.state.loggedIn === false && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -271,57 +312,33 @@ class MovieCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       posterUrl,
       genres,
       voteCount,
-      submittedBy
+      submittedBy,
+      movieId
     } = this.props;
-    return (
-      /*<div className="movie-card">
-      	<div className="movie-info">
-      		<div className="movie-header">
-      			<img className="movie-poster" src={posterUrl} />
-      			<h4 dangerouslySetInnerHTML={{__html: title}}></h4>
-      			<span>Submitted by: {submittedBy}</span>
-      			<ul className="movie-genres">
-      				{genres.map(genre => (
-      					<li className="genre-item">{genre}</li>
-      				))}
-      			</ul>
-      		</div>
-      		<div className="movie-description" dangerouslySetInnerHTML={{__html: description}}>
-      		</div>
-      		<div><p>{voteCount} votes</p></div>
-      	</div>
-      </div>*/
-      (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        className: "movie-card"
-      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-        className: "movie-wrapper"
-      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-        type: "radio",
-        name: "movie-of-the-month",
-        className: "movie-input"
-      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        className: "movie-info"
-      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-        src: posterUrl,
-        className: "movie-image"
-      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        className: "movie-data"
-      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
-        className: "movie-title",
-        dangerouslySetInnerHTML: {
-          __html: title
-        }
-      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Submitted by: ", submittedBy), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-        className: "movie-genres"
-      }, genres.map(genre => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-        className: "genre-item"
-      }, genre))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-        className: "movie-description",
-        dangerouslySetInnerHTML: {
-          __html: description
-        }
-      })))))
-    );
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "movie-info"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: posterUrl,
+      className: "movie-image"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "movie-data"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+      className: "movie-title",
+      dangerouslySetInnerHTML: {
+        __html: title
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Submitted by: ", submittedBy), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      className: "movie-genres"
+    }, genres.map(genre => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      className: "genre-item"
+    }, genre))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "movie-description",
+      dangerouslySetInnerHTML: {
+        __html: description
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "vote-count"
+    }, voteCount, " votes")));
   }
 }
 
@@ -344,18 +361,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class MovieList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  setSelectedMovieId(e) {
+    e.preventDefault();
+    this.props.getSelectedMovieId?.(e.target.value);
+    console.log('Movie List selected: ' + e.target.value);
+  }
   render() {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "movie-list"
-    }, this.props.movies.map(movie => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MovieCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, this.props.movies.map(movie => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "movie-card"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      className: "movie-wrapper"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "radio",
+      name: "movie-of-the-month",
+      className: "movie-input",
+      value: movie.attributes.id,
+      onChange: e => this.setSelectedMovieId(e)
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MovieCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
       title: movie.attributes.title.rendered,
       description: movie.attributes.content.rendered,
       posterUrl: movie.attributes._embedded['wp:featuredmedia']['0'].source_url,
       genres: movie.attributes.acf.movie_genres,
       voteCount: movie.attributes.acf.movie_vote_count,
       submittedBy: movie.attributes.acf.movie_submitted_by,
+      movieId: movie.attributes.id,
       key: movie.attributes.id
-    })));
+    })))));
   }
 }
 
